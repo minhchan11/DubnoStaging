@@ -1,5 +1,5 @@
---temp-output:c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\obj\Debug\netcoreapp1.0\
---out:c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\bin\Debug\netcoreapp1.0\Dubno.dll
+--temp-output:C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\obj\Debug\netcoreapp1.0\
+--out:C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\bin\Debug\netcoreapp1.0\Dubno.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -208,13 +208,13 @@
 --reference:C:\Users\glenj392\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\glenj392\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
 --reference:C:\Users\glenj392\.nuget\packages\System.Xml.XmlSerializer\4.0.11\ref\netstandard1.3\System.Xml.XmlSerializer.dll
---resource:"c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\obj\Debug\netcoreapp1.0\Dubnodotnet-compile.deps.json",Dubno.deps.json
-c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\Program.cs
-c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\Startup.cs
-c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\Controllers\HomeController.cs
-c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\Migrations\20170523183010_Initial.cs
-c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\Migrations\20170523183010_Initial.Designer.cs
-c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\Migrations\DubnoDbContextModelSnapshot.cs
-c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\Models\ApplicationUser.cs
-c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\Models\DubnoDbContext.cs
-c:\Users\glenj392\documents\visual studio 2015\Projects\Dubno\src\Dubno\Models\Post.cs
+--resource:"C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\obj\Debug\netcoreapp1.0\Dubnodotnet-compile.deps.json",Dubno.deps.json
+C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\Program.cs
+C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\Startup.cs
+C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\Controllers\HomeController.cs
+C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\Migrations\20170523183010_Initial.cs
+C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\Migrations\20170523183010_Initial.Designer.cs
+C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\Migrations\DubnoDbContextModelSnapshot.cs
+C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\Models\ApplicationUser.cs
+C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\Models\DubnoDbContext.cs
+C:\Users\glenj392\Documents\Visual Studio 2015\Projects\Dubno\src\Dubno\Models\Post.cs

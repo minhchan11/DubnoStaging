@@ -47,6 +47,7 @@ namespace Dubno.Controllers
 
             //when users submit a suggested post, they will create an instance of that post in the database, the method will automatically set its pending status to true, which will allow the Admin to see the new post in their dashboard, it will also automatically set the approved to denied, therefore preventing it from being shown on the posts page. 
             post.Approved = false;
+            post.PostDate = DateTime.Now;
             post.Pending = true;
             db.Posts.Add(post);
             db.SaveChanges();
@@ -64,28 +65,30 @@ namespace Dubno.Controllers
         public IActionResult Edit(Post post)
         {
             //this method will allow the admin to edit the post
+            post.PostDate = DateTime.Now;
             db.Entry(post).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
 
+        //public IActionResult ApprovePost(int id)
+        //{
+        //    var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
+        //    return View(thisPost);
+        //}
+
+       
         public IActionResult ApprovePost(int id)
         {
-            var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
-            return View(thisPost);
-        }
-
-        [HttpPost]
-        public IActionResult ApprovePost(Post post)
-        {
-
+            var thisPost = db.Posts.FirstOrDefault(i => i.PostId == id);
             //when an admin approves a post it will set the posts approve property to true, and the pending property to false- therefore allowing it to show on the page
-            post.Approved = true;
-            post.Pending = false;
-            db.Entry(post).State = EntityState.Modified;
+            thisPost.Approved = true;
+            thisPost.Pending = false;
+            thisPost.PostDate = DateTime.Now;
+            db.Entry(thisPost).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return View(thisPost);
         }
 
         public IActionResult Delete(int id)

@@ -1,16 +1,5 @@
-﻿@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-
+﻿
 @model Dubno.Models.Post
 
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.PostId)
-
-    <h4>@Model.Title</h4>
-    <button value="model.PostId">Claim</button>
-}
+<li>Posted!</li>

@@ -15,20 +15,25 @@
             @if (post.Approved == false && post.Pending == true)
             {
 
+                    <div class="col-md-4">
+                        <div>
+                            <div class="pi-img-wrapper">
+                                <img src="@post.ImageUrl" class="img-responsive">
+                            </div>
+                            <h3>
+                                @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })
+                            </h3>
+                            <h5>@post.Name</h5>
+                            <h5>@post.Description</h5>
+                            <h5>@post.City, @post.State</h5>
+                            <h5>@post.PostDate</h5>
 
-                <div class="col-md-4">
-                    <div class="post">
-                        <div class="pi-img-wrapper">
-                            <img src="@post.ImageUrl" class="img-responsive">
+                            <div id="post-@post.PostId">
+                            <button class="post" value="@post.PostId">Post</button>
+                            </div>
                         </div>
-                        <h3>
-                            @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })
-                        </h3>
-                        <h5>@post.Name</h5>
-                        <h5>@post.Description</h5>
-                        <h5>@post.City, @post.State</h5>
                     </div>
-                </div>
+             
             }
 
         }

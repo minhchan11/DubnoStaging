@@ -1,0 +1,15 @@
+﻿
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Dubno.Models.Post
+
+
+
+<img src=" @Html.DisplayFor(model => model.ImageUrl) " alt="Alternate Text" />
+<p> @Html.DisplayFor(model => model.Title)</p>
+<p> @Html.DisplayFor(model => model.Name)</p>
+<p> @Html.DisplayFor(model => model.Description)</p>

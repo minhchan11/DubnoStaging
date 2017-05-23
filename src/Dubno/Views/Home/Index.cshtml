@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Dubno.Models.Post>
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var post in Model)
+        {
+
+            @if (post.Approved == true && post.Pending == false)
+            {
+
+               
+                <div class="col-md-4">
+                    <div class="post">
+                        <div class="pi-img-wrapper">
+                            <img src="@post.ImageUrl" class="img-responsive">
+                        </div>
+                        <h3> @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })
+                        </h3>
+                        <h5>@post.Name</h5>
+                        <h5>@post.Description</h5>
+                        <h5>@post.City, @post.State</h5>
+                    </div>
+                </div>
+                }
+
+                }
+</div>
+</div>

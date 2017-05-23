@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model Dubno.Models.Post
+
+
+
+<h2>Edit</h2>
+<hr />
+<h4>Edit this Post: @Html.DisplayFor(model => model.Title)</h4>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.PostId)
+
+    <label>City</label>
+    <select name="City" id="City">
+        <option value="Dubno">Dubno</option>
+    </select>
+
+    <label>State</label>
+    <select name="State" id="State">
+        <option value="Ukraine">Ukraine</option>
+    </select>
+
+    <label>Image</label>
+    @Html.EditorFor(model => model.ImageUrl)
+
+    <label>Title</label>
+    @Html.EditorFor(model => model.Title)
+
+    <label>Description</label>
+    @Html.EditorFor(model => model.Description)
+
+    <label>Name</label>
+    @Html.EditorFor(model => model.Name)
+
+
+    <input type="submit" value="Save" class="btn btn-default" />
+}

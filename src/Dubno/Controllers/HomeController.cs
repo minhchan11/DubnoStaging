@@ -72,22 +72,19 @@ namespace Dubno.Controllers
         }
 
 
-        //public IActionResult ApprovePost(int id)
-        //{
-        //    var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
-        //    return View(thisPost);
-        //}
+
 
        
         public IActionResult ApprovePost(int id)
         {
-            var thisPost = db.Posts.FirstOrDefault(i => i.PostId == id);
             //when an admin approves a post it will set the posts approve property to true, and the pending property to false- therefore allowing it to show on the page
+            var thisPost = db.Posts.FirstOrDefault(i => i.PostId == id);
             thisPost.Approved = true;
             thisPost.Pending = false;
             thisPost.PostDate = DateTime.Now;
             db.Entry(thisPost).State = EntityState.Modified;
             db.SaveChanges();
+            //uses ajax to automaticially update the page
             return View(thisPost);
         }
 

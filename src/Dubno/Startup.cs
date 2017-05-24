@@ -25,6 +25,8 @@ namespace Dubno
 
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddTransient<SampleData>();
             //makes this app a Model View Controller app
             services.AddMvc();
             //add entityframework to the app, using an extension of DB context that connects to our own DubnoDbContext
@@ -37,16 +39,18 @@ namespace Dubno
              .AddEntityFrameworkStores<DubnoDbContext>()
              .AddDefaultTokenProviders();
         }
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, SampleData seeder)
         {
 
-            //seeds our database with posts on startup
+            seeder.SeedAdminUser();
+        
+        //seeds our database with posts on startup
 
-            //var context = app.ApplicationServices.GetService<BreadsBakeryDbContext>();
-            //AddTestData(context);
+        //var context = app.ApplicationServices.GetService<BreadsBakeryDbContext>();
+        //AddTestData(context);
 
-            //tells app to use Identity on configuration
-            app.UseIdentity();
+        //tells app to use Identity on configuration
+        app.UseIdentity();
 
             //tells app to use our wwwroot folder for css/js/images
             app.UseStaticFiles();

@@ -12,6 +12,17 @@
             });
         });
 
+        $(".click-details").click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: 'Home/Details/' + this.id,
+                success: function (result) {
+                    $('.return-details').html(result);
+                }
+            });
+        });
+
 
         //$(".delete-post").click(function () {
         //    $.ajax({

@@ -43,14 +43,14 @@ namespace Dubno
         {
 
             seeder.SeedAdminUser();
-        
-        //seeds our database with posts on startup
 
-        //var context = app.ApplicationServices.GetService<BreadsBakeryDbContext>();
-        //AddTestData(context);
+            //seeds our database with posts on startup
 
-        //tells app to use Identity on configuration
-        app.UseIdentity();
+            var context = app.ApplicationServices.GetService<DubnoDbContext>();
+            AddTestData(context);
+
+            //tells app to use Identity on configuration
+            app.UseIdentity();
 
             //tells app to use our wwwroot folder for css/js/images
             app.UseStaticFiles();
@@ -77,19 +77,12 @@ namespace Dubno
 
         //our method for seeding the database
 
-        //private static void AddTestData(BreadsBakeryDbContext context)
-        //{
-        //    context.Database.ExecuteSqlCommand("Delete From CateringProducts");
-
-        //    //Add deparments to database
-
-        //    var department1 = new Department();
-        //    department1.Name = "Kitchen";
-        //    context.Departments.Add(department1);
+        private static void AddTestData(DubnoDbContext context)
+        {
+            //context.Database.ExecuteSqlCommand("Delete From Posts");
 
 
-
-        //    context.SaveChanges();
-        //}
+            context.SaveChanges();
+        }
     }
 }

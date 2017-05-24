@@ -25,6 +25,9 @@ namespace Dubno.Models
         public bool Approved { get; set; }
         public bool Pending { get; set; }
         public string AdminComment { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime PostDate { get; set; }
  
     }

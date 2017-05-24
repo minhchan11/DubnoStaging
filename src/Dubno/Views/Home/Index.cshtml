@@ -6,6 +6,9 @@
 @model IEnumerable<Dubno.Models.Post>
 
 <div class="container">
+    <br />
+    <br />
+    <br />
     <div class="row">
 
         @foreach (var post in Model)
@@ -14,21 +17,29 @@
             @if (post.Approved == true && post.Pending == false)
             {
 
-               
+
                 <div class="col-md-4">
                     <div class="post">
                         <div class="pi-img-wrapper">
                             <img src="@post.ImageUrl" class="img-responsive">
                         </div>
-                        <h3> @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })
-                        </h3>
+                        <span class="click-details" id="@post.PostId" >
+                            <p>@post.Title</p>
+                        </span>
+
                         <h5>@post.Name</h5>
                         <h5>@post.Description</h5>
                         <h5>@post.City, @post.State</h5>
                     </div>
                 </div>
-                }
+            }
 
-                }
-</div>
+        }
+
+
+    
+                <div class=" row return-details"></div>
+
+
+    </div>
 </div>

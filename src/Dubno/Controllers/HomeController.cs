@@ -19,14 +19,14 @@ namespace Dubno.Controllers
         public IActionResult Index()
         {
             //returns the view with a list of all the approved posts
-            return View(db.Posts.ToList());
+            return View(db.Posts.OrderBy(s => s.PostDate).ToList());
         }
 
 
         public IActionResult AdminView()
         {
             //returns the view with a list of all unapproved posts
-            return View(db.Posts.ToList());
+            return View(db.Posts.OrderBy(s => s.PostDate).ToList());
         }
         public IActionResult Details(int id)
         {
@@ -66,15 +66,15 @@ namespace Dubno.Controllers
         {
             //this method will allow the admin to edit the post
             post.PostDate = DateTime.Now;
+            post.Approved = false;
+            post.Pending = true;
             db.Entry(post).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminView");
         }
 
 
-
-
-       
+        [HttpPost]
         public IActionResult ApprovePost(int id)
         {
             //when an admin approves a post it will set the posts approve property to true, and the pending property to false- therefore allowing it to show on the page
@@ -85,7 +85,7 @@ namespace Dubno.Controllers
             db.Entry(thisPost).State = EntityState.Modified;
             db.SaveChanges();
             //uses ajax to automaticially update the page
-            return View(thisPost);
+            return Json(thisPost);
         }
 
         public IActionResult Delete(int id)

@@ -10,8 +10,10 @@
 
 @if (User.Identity.IsAuthenticated)
 {
+   
+        <h4>Hello @User.Identity.Name!</h4>
 
-<h1>Need Approval</h1>
+<h1>Needs Approval</h1>
 <div class="container">
     <div class="row">
 
@@ -21,26 +23,27 @@
             @if (post.Approved == false && post.Pending == true)
             {
 
+                   <div id="post-@post.PostId">
                     <div class="col-md-4">
                         <div>
                             <div class="pi-img-wrapper">
                                 <img src="@post.ImageUrl" class="img-responsive">
                             </div>
-                            <h3>
+                            <h1>
                                 @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })
-                            </h3>
+                            </h1>
                             <h5>@post.Name</h5>
                             <h5>@post.Description</h5>
                             <h5>@post.City, @post.State</h5>
                             <h5>@post.PostDate</h5>
 
-                            <div id="post-@post.PostId">
-                            <button class="post" value="@post.PostId">Post</button>
-                            @*<button class="delete-post" value="@post.PostId">Delete</button>*@
-                            </div>
+                            <p>@Html.ActionLink("Edit", "Edit", new { id = post.PostId })</p>
 
-                        </div>
+                            <button class="post" value="@post.PostId">Post</button>
+    
+                       </div>
                     </div>
+                   </div>
 
             }
 

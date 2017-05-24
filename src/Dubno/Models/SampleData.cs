@@ -20,10 +20,10 @@ namespace Dubno.Models
         {
             var user = new ApplicationUser
             {
-                UserName = "Email@email.com",
-                NormalizedUserName = "email@email.com",
-                Email = "Email@email.com",
-                NormalizedEmail = "email@email.com",
+                UserName = "Email@gmail.com",
+                NormalizedUserName = "email@gmail.com",
+                Email = "Email@gmail.com",
+                NormalizedEmail = "email@gmail.com",
                 EmailConfirmed = true,
                 LockoutEnabled = false,
                 SecurityStamp = Guid.NewGuid().ToString()

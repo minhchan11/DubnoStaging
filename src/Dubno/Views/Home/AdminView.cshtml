@@ -5,6 +5,12 @@
 
 @model IEnumerable<Dubno.Models.Post>
 
+
+@using System.Security.Claims
+
+@if (User.Identity.IsAuthenticated)
+{
+
 <h1>Need Approval</h1>
 <div class="container">
     <div class="row">
@@ -35,9 +41,10 @@
 
                         </div>
                     </div>
-             
+
             }
 
         }
     </div>
 </div>
+}

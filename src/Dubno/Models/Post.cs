@@ -15,12 +15,20 @@ namespace Dubno.Models
 
         [Key]
         public int PostId { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Description { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string State { get; set; }
+        [Required]
+        [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
+        [Required]
         public string Email { get; set; }
         public bool Approved { get; set; }
         public bool Pending { get; set; }

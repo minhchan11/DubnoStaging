@@ -4,15 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-@model Dubno.Models.Post
-
+@model ImageViewModel
 
 <h2>Submit a post for approval</h2>
 <hr />
 
-@using (Html.BeginForm())
-{
+<form action="" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true);
 
     <label>City</label>
     <select name="City" id="City">
@@ -40,6 +39,9 @@
     @Html.TextBoxFor(model => model.Email)
 
 
-    <input type="submit" value="Submit" />
-}
-<p>@Html.ActionLink("Back to list", "Index")</p>
+    <div>
+        @Html.LabelFor(m => m.ImageUpload)
+        @Html.EditorFor(m => m.ImageUpload)
+    </div>
+    <button type="submit">Create</button>
+</form>

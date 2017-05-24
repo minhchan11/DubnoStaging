@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Dubno.Models;
-
+using Dubno.ViewModels;
 
 namespace Dubno.Controllers
 {
@@ -41,14 +41,13 @@ namespace Dubno.Controllers
             return View();
         }
 
+
         [HttpPost]
         public IActionResult SuggestPost(Post post)
         {
 
             //when users submit a suggested post, they will create an instance of that post in the database, the method will automatically set its pending status to true, which will allow the Admin to see the new post in their dashboard, it will also automatically set the approved to denied, therefore preventing it from being shown on the posts page. 
-            post.Approved = false;
-            post.PostDate = DateTime.Now;
-            post.Pending = true;
+         
             db.Posts.Add(post);
             db.SaveChanges();
             return RedirectToAction("Index");

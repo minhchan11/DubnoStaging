@@ -4,14 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model ImageViewModel
+@model Dubno.ViewModels.PostViewModel
+<br />
+<br />
+<br />
+<h1>Add Post</h1>
 
-<h2>Submit a post for approval</h2>
-<hr />
-
-<form action="" method="post" enctype="multipart/form-data">
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true);
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="files" />
 
     <label>City</label>
     <select name="City" id="City">
@@ -23,8 +24,6 @@
         <option value="Ukraine">Ukraine</option>
     </select>
 
-    <label>Image</label>
-    @Html.TextBoxFor(model => model.ImageUrl)
 
     <label>Title</label>
     @Html.TextBoxFor(model => model.Title)
@@ -38,10 +37,5 @@
     <label>Contact Email</label>
     @Html.TextBoxFor(model => model.Email)
 
-
-    <div>
-        @Html.LabelFor(m => m.ImageUpload)
-        @Html.EditorFor(m => m.ImageUpload)
-    </div>
-    <button type="submit">Create</button>
-</form>
+    <input type="submit" value="Post" />
+}

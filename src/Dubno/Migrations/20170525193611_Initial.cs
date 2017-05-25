@@ -45,7 +45,7 @@ namespace Dubno.Migrations
                     City = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    ImageUrl = table.Column<string>(nullable: true),
+                    ImageName = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Pending = table.Column<bool>(nullable: false),
                     PostDate = table.Column<DateTime>(nullable: false),

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using Microsoft.AspNetCore.Http;
 
 namespace Dubno.Models
 {
@@ -15,20 +15,18 @@ namespace Dubno.Models
 
         [Key]
         public int PostId { get; set; }
-        [Required]
+        //[Required]
         public string Title { get; set; }
-        [Required]
+        //[Required]
         public string Description { get; set; }
-        [Required]
+        //[Required]
         public string Name { get; set; }
-        [Required]
+        //[Required]
         public string City { get; set; }
-        [Required]
+        //[Required]
         public string State { get; set; }
-        [Required]
-        [DataType(DataType.ImageUrl)]
-        public string ImageUrl { get; set; }
-        [Required]
+      
+        //[Required]
         public string Email { get; set; }
         public bool Approved { get; set; }
         public bool Pending { get; set; }
@@ -37,6 +35,7 @@ namespace Dubno.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime PostDate { get; set; }
- 
+
+        public string ImageName { get; set; }
     }
 }

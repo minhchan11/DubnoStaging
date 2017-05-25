@@ -80,7 +80,7 @@ namespace Dubno.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("ImageUrl");
+                    b.Property<string>("ImageName");
 
                     b.Property<string>("Name");
 

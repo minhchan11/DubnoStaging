@@ -1,17 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Dubno.Models;
 using Dubno.ViewModels;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+
 
 namespace Dubno.Controllers
 {
     public class HomeController : Controller
     {
+
+        private IHostingEnvironment _environment;
+
+
+        public HomeController(IHostingEnvironment environment)
+        {
+           
+            _environment = environment;
+        }
+
         //creates a new instance of database as an entension of the DubnoDbContext class
         private DubnoDbContext db = new DubnoDbContext();
 
@@ -37,21 +48,49 @@ namespace Dubno.Controllers
 
         public IActionResult SuggestPost()
         {
-          
-            return View();
+            return View(new PostViewModel());
         }
 
-
         [HttpPost]
-        public IActionResult SuggestPost(Post post)
+        public async Task<IActionResult> Upload(PostViewModel newPost)
         {
-
-            //when users submit a suggested post, they will create an instance of that post in the database, the method will automatically set its pending status to true, which will allow the Admin to see the new post in their dashboard, it will also automatically set the approved to denied, therefore preventing it from being shown on the posts page. 
-         
+            var fileName = "";
+            var uploads = Path.Combine(_environment.WebRootPath, "uploads");
+            foreach (var file in newPost.files)
+            {
+                if (file.Length > 0)
+                {
+                    fileName = file.FileName;
+                    using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    }
+                }
+            }
+            var post = new Post { ImageName = "/uploads/" + fileName, Description = newPost.Description, Title = newPost.Title, Name = newPost.Name, Email = newPost.Email, City = newPost.City, State = newPost.State };
+            post.Approved = false;
+            post.Pending = true;
             db.Posts.Add(post);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        //end handling new content
+
+ 
+
+        //[HttpPost]
+        //public IActionResult SuggestPost(Post model)
+        //{
+
+        //    //when users submit a suggested post, they will create an instance of that post in the database, the method will automatically set its pending status to true, which will allow the Admin to see the new post in their dashboard, it will also automatically set the approved to denied, therefore preventing it from being shown on the posts page. 
+        //    var img = model.ImageName;
+        //    model.Approved = false;
+        //    model.Pending = true;
+        //    db.Posts.Add(model);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
 
         public IActionResult Edit(int id)
         {
@@ -102,5 +141,9 @@ namespace Dubno.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        
+
     }
+
 }

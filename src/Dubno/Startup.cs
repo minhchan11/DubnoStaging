@@ -46,8 +46,6 @@ namespace Dubno
 
             //seeds our database with posts on startup
 
-            var context = app.ApplicationServices.GetService<DubnoDbContext>();
-            AddTestData(context);
 
             //tells app to use Identity on configuration
             app.UseIdentity();
@@ -75,14 +73,5 @@ namespace Dubno
         }
 
 
-        //our method for seeding the database
-
-        private static void AddTestData(DubnoDbContext context)
-        {
-            //context.Database.ExecuteSqlCommand("Delete From Posts");
-
-
-            context.SaveChanges();
-        }
     }
 }

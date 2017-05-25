@@ -8,8 +8,8 @@ using Dubno.Models;
 namespace Dubno.Migrations
 {
     [DbContext(typeof(DubnoDbContext))]
-    [Migration("20170524190010_another")]
-    partial class another
+    [Migration("20170525193611_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -81,7 +81,7 @@ namespace Dubno.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("ImageUrl");
+                    b.Property<string>("ImageName");
 
                     b.Property<string>("Name");
 

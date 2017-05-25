@@ -5,7 +5,7 @@
             var route = '#post-' + this.value;
             console.log(this.value);
             $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: '/Home/ApprovePost/' + this.value,
                 success: function (result) {
                     $(route).html(result);

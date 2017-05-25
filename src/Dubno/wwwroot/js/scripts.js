@@ -1,12 +1,14 @@
 ﻿
     $(document).ready(function () {
-        //get click function- update is done in controller
+        //this will call the approve post method which will update the approval and pending booleans to allow display on the index page.
         $('.post').click(function () {
             var route = '#post-' + this.value;
+            console.log(this.value);
             $.ajax({
                 type: 'GET',
                 url: '/Home/ApprovePost/' + this.value,
                 success: function (result) {
+                    console.log(result);
                 $(route).html(result);
                 }
             });

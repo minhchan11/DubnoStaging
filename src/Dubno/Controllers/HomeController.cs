@@ -70,6 +70,7 @@ namespace Dubno.Controllers
             var post = new Post { ImageName = "/uploads/" + fileName, Description = newPost.Description, Title = newPost.Title, Name = newPost.Name, Email = newPost.Email, City = newPost.City, State = newPost.State };
             post.Approved = false;
             post.Pending = true;
+            post.PostDate = DateTime.Now;
             db.Posts.Add(post);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -77,20 +78,6 @@ namespace Dubno.Controllers
         //end handling new content
 
  
-
-        //[HttpPost]
-        //public IActionResult SuggestPost(Post model)
-        //{
-
-        //    //when users submit a suggested post, they will create an instance of that post in the database, the method will automatically set its pending status to true, which will allow the Admin to see the new post in their dashboard, it will also automatically set the approved to denied, therefore preventing it from being shown on the posts page. 
-        //    var img = model.ImageName;
-        //    model.Approved = false;
-        //    model.Pending = true;
-        //    db.Posts.Add(model);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-
 
         public IActionResult Edit(int id)
         {
@@ -111,18 +98,23 @@ namespace Dubno.Controllers
             return RedirectToAction("AdminView");
         }
 
+        public IActionResult ApprovePost()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public IActionResult ApprovePost(int id)
         {
-            //when an admin approves a post it will set the posts approve property to true, and the pending property to false- therefore allowing it to show on the page
+            //when an admin approves a post it will set the posts approve property to true, and the pending property to false- therefore allowing it to show on the index page
             var thisPost = db.Posts.FirstOrDefault(i => i.PostId == id);
             thisPost.Approved = true;
             thisPost.Pending = false;
             thisPost.PostDate = DateTime.Now;
             db.Entry(thisPost).State = EntityState.Modified;
             db.SaveChanges();
-            //uses ajax to automaticially update the page
+            //uses ajax to update on the page
             return Json(thisPost);
         }
 

@@ -42,7 +42,15 @@ namespace Dubno.Controllers
         public IActionResult Details(int id)
         {
             //returns view with the specific postId 
+
             var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
+
+            var nextID = db.Posts.OrderBy(i => i.PostId)
+                     .SkipWhile(i => i.PostId != id)
+                     .Skip(1)
+                     .Select(i => i.PostId);
+            ViewBag.NextID = nextID;
+
             return View(thisPost);
         }
 
@@ -98,23 +106,24 @@ namespace Dubno.Controllers
             return RedirectToAction("AdminView");
         }
 
-        public IActionResult ApprovePost()
-        {
-            return View();
-        }
-
+        //public IActionResult ApprovePost(int id )
+        //{
+        //    var thisPost = db.Posts.FirstOrDefault(i => i.PostId == id);
+        //    Console.WriteLine(thisPost);
+        //    return View(thisPost);
+        //}
 
         [HttpPost]
         public IActionResult ApprovePost(int id)
         {
-            //when an admin approves a post it will set the posts approve property to true, and the pending property to false- therefore allowing it to show on the index page
             var thisPost = db.Posts.FirstOrDefault(i => i.PostId == id);
+            Console.WriteLine(thisPost.Approved);
             thisPost.Approved = true;
             thisPost.Pending = false;
             thisPost.PostDate = DateTime.Now;
             db.Entry(thisPost).State = EntityState.Modified;
             db.SaveChanges();
-            //uses ajax to update on the page
+            //uses ajax to automaticially update the page
             return Json(thisPost);
         }
 

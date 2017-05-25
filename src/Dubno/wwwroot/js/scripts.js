@@ -8,8 +8,7 @@
                 type: 'GET',
                 url: '/Home/ApprovePost/' + this.value,
                 success: function (result) {
-                    console.log(result);
-                $(route).html(result);
+                    $(route).html(result);
                 }
             });
         });

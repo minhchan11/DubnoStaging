@@ -39,6 +39,15 @@ namespace Dubno.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult About(Subscriber subscriber)
+        {
+            //adds subscriber to subscribers database
+            db.Subscribers.Add(subscriber);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
         public IActionResult AdminView()
         {
@@ -59,6 +68,7 @@ namespace Dubno.Controllers
 
             return View(thisPost);
         }
+
 
         public IActionResult SuggestPost()
         {
@@ -112,12 +122,6 @@ namespace Dubno.Controllers
             return RedirectToAction("AdminView");
         }
 
-        //public IActionResult ApprovePost(int id )
-        //{
-        //    var thisPost = db.Posts.FirstOrDefault(i => i.PostId == id);
-        //    Console.WriteLine(thisPost);
-        //    return View(thisPost);
-        //}
 
         [HttpPost]
         public IActionResult ApprovePost(int id)

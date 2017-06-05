@@ -5,6 +5,7 @@
     "preserveCompilationContext": true
   },
   "dependencies": {
+    "MailKit": "1.6.0",
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
     "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
@@ -18,7 +19,6 @@
       "type": "build",
       "version": "1.0.0-preview2-final"
     },
-
     "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
     "Microsoft.Extensions.Logging.Console": "1.0.0",

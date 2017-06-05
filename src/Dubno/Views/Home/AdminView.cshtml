@@ -37,8 +37,9 @@
                             <h5>@post.City, @post.State</h5>
                             <h5>@post.PostDate</h5>
 
-                            <p>@Html.ActionLink("Edit", "Edit", new { id = post.PostId })</p>
 
+                            <p>@Html.ActionLink("Edit", "Edit", new { id = post.PostId })</p>
+                            <p>@Html.ActionLink("Deny", "Delete", new { id = post.PostId })</p>
                             <button class="post" value="@post.PostId">Post</button>
     
                        </div>

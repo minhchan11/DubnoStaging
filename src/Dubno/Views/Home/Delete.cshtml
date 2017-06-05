@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model Dubno.Models.Post
+
+
+<h2>Are you sure you want to delete this?</h2>
+<hr />
+@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}

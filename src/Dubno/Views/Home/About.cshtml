@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>Lorem Ipsum</h3>
+<h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
+<h4>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h4>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dolor elit, rutrum a dolor quis, scelerisque commodo ex. In neque orci, commodo vitae semper et, consectetur ac magna. Praesent eu tempus diam, eget malesuada libero. Morbi tincidunt tortor non diam viverra mattis. Aliquam erat volutpat. Aenean vitae facilisis turpis, ac pulvinar orci. Praesent ac nisi nisi. Aliquam et tempus diam. Nulla facilisi.</p>
+
+<p>Pellentesque urna quam, suscipit id ex et, mollis accumsan mauris. Praesent elementum congue fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi consectetur risus ut pretium auctor. Nam imperdiet, felis nec pellentesque tincidunt, turpis leo rutrum neque, lacinia dictum mi magna in quam. Fusce non tempus arcu, eget varius urna. Nam convallis lectus nunc, vel consectetur turpis ullamcorper nec.</p>
+
+<p>In vel mi nec libero scelerisque sodales. Morbi nisl massa, lobortis ac mi eu, pharetra facilisis tortor. Ut ornare leo ac nunc efficitur vehicula. Pellentesque ut massa leo. Aliquam venenatis felis a lacus pretium ultrices. Curabitur fermentum arcu in est vestibulum, non tincidunt augue imperdiet. Praesent ex urna, dignissim ac condimentum id, sodales nec dui. Integer condimentum purus eros, non euismod neque finibus sed. In blandit magna orci, sit amet rhoncus dolor cursus at. Cras finibus sapien porttitor, ultrices leo a, blandit elit. Cras egestas blandit mauris sit amet finibus. Aliquam eu dignissim nisl. Vivamus eu turpis nec eros semper imperdiet ac sed dolor.</p>
+
+<p>Praesent non risus tempus, posuere metus vitae, luctus urna. Donec ultricies erat venenatis enim porttitor, vel maximus justo imperdiet. Donec aliquam tortor a ultrices pretium. Nam quis sodales lectus. Cras orci lectus, sollicitudin a sem quis, porta lobortis dolor. Sed a libero sit amet ex ornare finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed egestas ipsum libero, eu laoreet velit condimentum quis. Fusce euismod gravida quam, vitae efficitur neque pretium quis. Cras in venenatis ex, ut sollicitudin nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse vitae varius sem.</p>
+
+<p>Etiam aliquam ac quam ac ornare. Pellentesque vehicula pellentesque nisi quis ullamcorper. Fusce nec nulla elementum velit auctor iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet, justo quis sagittis malesuada, ante velit faucibus sem, et vestibulum ligula diam vel nibh. Donec sit amet augue augue. Cras non tristique turpis. In massa velit, placerat non orci at, posuere tincidunt justo. Vestibulum tincidunt lorem at arcu vulputate eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam vel vehicula lacus. Sed lobortis magna in faucibus commodo. Morbi congue nisl a euismod consequat. Pellentesque et ante purus. Nam vitae dolor mollis, fermentum metus vitae, congue leo.</p>
+
+
+<h3>Subscribe</h3>
+<h4>Subscribe for email updates about new posts!</h4>
+
+@model Dubno.Models.Subscriber
+
+@using (Html.BeginForm())
+{
+    <label>Email</label>
+    @Html.EditorFor(model => model.Email)
+
+    <label>First Name</label>
+    @Html.EditorFor(model => model.FirstName)
+
+    <label>Last Name</label>
+    @Html.EditorFor(model => model.LastName)
+
+
+    <input type="submit" value="Save" class="btn btn-default" />
+}

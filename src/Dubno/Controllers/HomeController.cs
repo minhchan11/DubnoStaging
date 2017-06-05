@@ -33,6 +33,12 @@ namespace Dubno.Controllers
             return View(db.Posts.OrderBy(s => s.PostDate).ToList());
         }
 
+        public IActionResult About()
+        {
+            //returns the view for about page where users can subscribe to get emails
+            return View();
+        }
+
 
         public IActionResult AdminView()
         {
@@ -41,15 +47,15 @@ namespace Dubno.Controllers
         }
         public IActionResult Details(int id)
         {
-            //returns view with the specific postId 
+           //returns view with the specific postId 
 
             var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
 
-            var nextID = db.Posts.OrderBy(i => i.PostId)
-                     .SkipWhile(i => i.PostId != id)
-                     .Skip(1)
-                     .Select(i => i.PostId);
-            ViewBag.NextID = nextID;
+            //var nextID = db.Posts.OrderBy(i => i.PostId)
+            //         .SkipWhile(i => i.PostId != id)
+            //         .Skip(1)
+            //         .Select(i => i.PostId);
+            //ViewBag.NextID = nextID;
 
             return View(thisPost);
         }
@@ -117,7 +123,6 @@ namespace Dubno.Controllers
         public IActionResult ApprovePost(int id)
         {
             var thisPost = db.Posts.FirstOrDefault(i => i.PostId == id);
-            Console.WriteLine(thisPost.Approved);
             thisPost.Approved = true;
             thisPost.Pending = false;
             thisPost.PostDate = DateTime.Now;

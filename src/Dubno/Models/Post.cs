@@ -25,8 +25,9 @@ namespace Dubno.Models
         public string City { get; set; }
         //[Required]
         public string State { get; set; }
-      
+
         //[Required]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public bool Approved { get; set; }
         public bool Pending { get; set; }

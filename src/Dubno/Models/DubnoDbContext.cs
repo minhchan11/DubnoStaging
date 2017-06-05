@@ -12,7 +12,8 @@ namespace Dubno.Models
     public class DubnoDbContext : IdentityDbContext<ApplicationUser>
     {
         public virtual DbSet<Post> Posts { get; set; }
-      
+        public virtual DbSet<Subscriber> Subscribers { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

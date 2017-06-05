@@ -23,9 +23,9 @@
                         <div class="pi-img-wrapper">
                             <img src="@post.ImageName" class="img-responsive">
                         </div>
-                        <span class="click-details" id="@post.PostId" >
-                            <p>@post.Title</p>
-                        </span>
+                        <h4>
+                            @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })
+                        </h4>
 
                         <h5>@post.Name</h5>
                         <h5>@post.Description</h5>

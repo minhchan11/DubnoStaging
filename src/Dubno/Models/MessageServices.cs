@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace Dubno.Models
 {
@@ -43,24 +45,24 @@ namespace Dubno.Models
                 builder.HtmlBody = message;
                 myMessage.Body = builder.ToMessageBody();
 
-                //using (SmtpClient smtp = new SmtpClient())
-                //{
-                //    bool UseSSL = false;
-                //    string Host = "smtp.live.com";
-                //    int Port = 587;
-                //    await smtp.ConnectAsync(Host, Port, UseSSL).ConfigureAwait(false);
-                //    smtp.AuthenticationMechanisms.Remove("XOAUTH2");
-                //    smtp.Authenticate(_email, _epass); // Note: only needed if the SMTP server requires authentication
-                //    await smtp.SendAsync(myMessage).ConfigureAwait(false);
-                //    await smtp.DisconnectAsync(true).ConfigureAwait(false);
-                //}
-
                 using (SmtpClient smtp = new SmtpClient())
                 {
-                    smtp.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
-                    smtp.PickupDirectoryLocation = "C:\\Mails\\";
-                    await smtp.SendMailAsync(myMessage);
+                    bool UseSSL = false;
+                    string Host = "smtp.live.com";
+                    int Port = 587;
+                    await smtp.ConnectAsync(Host, Port, UseSSL).ConfigureAwait(false);
+                    smtp.AuthenticationMechanisms.Remove("XOAUTH2");
+                    smtp.Authenticate(_email, _epass); // Note: only needed if the SMTP server requires authentication
+                    await smtp.SendAsync(myMessage).ConfigureAwait(false);
+                    await smtp.DisconnectAsync(true).ConfigureAwait(false);
                 }
+
+                //using (SmtpClient smtp = new SmtpClient())
+                //{
+                //    smtp.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
+                //    smtp.PickupDirectoryLocation = "C:\\Mails\\";
+                //    await smtp.SendMailAsync(myMessage);
+                //}
             }
             catch (Exception ex)
             {

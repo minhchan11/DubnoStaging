@@ -29,6 +29,7 @@ namespace Dubno.Models
         //[Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
         public bool Approved { get; set; }
         public bool Pending { get; set; }
         public string AdminComment { get; set; }

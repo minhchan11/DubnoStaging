@@ -5,37 +5,83 @@
 }
 
 @model Dubno.ViewModels.PostViewModel
-<br />
-<br />
-<br />
-<h1>Add Post</h1>
 
-@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
 {
-    <input type="file" name="files" />
+    <div class="container">
 
-    <label>City</label>
-    <select name="City" id="City">
-        <option value="Dubno">Dubno</option>
-    </select>
+                <fieldset>
 
-    <label>State</label>
-    <select name="State" id="State">
-        <option value="Ukraine">Ukraine</option>
-    </select>
+                    <legend>Contribute a Story</legend>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Photo</label>
+                        <div class="col-md-6">
+                            <input type="file" name="files" />
+                        </div>
+                    </div>
 
 
-    <label>Title</label>
-    @Html.TextBoxFor(model => model.Title)
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">City</label>
+                        <div class="col-md-6">
+                            <select name="City" id="City" class="form-control">
+                                <option value="Dubno">Dubno</option>
+                            </select>
+                        </div>
+                    </div>
 
-    <label>Description</label>
-    @Html.TextBoxFor(model => model.Description)
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">State</label>
+                        <div class="col-md-6">
+                            <select name="State" id="State" class="form-control">
+                                <option value="Ukraine">Ukraine</option>
+                            </select>
+                        </div>
+                    </div>
 
-    <label>Name</label>
-    @Html.TextBoxFor(model => model.Name)
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Title</label>
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(model => model.Title, new { data_bind = "value: Title", @class = "form-control input-md" })
+          
+                        </div>
+                    </div>
 
-    <label>Contact Email</label>
-    @Html.TextBoxFor(model => model.Email)
 
-    <input type="submit" value="Post" />
-}
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Story</label>
+                        <div class="col-md-6">
+                            @Html.TextAreaFor(model => model.Description, new { data_bind = "value: Story", @class = "form-control input-md" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Your Name</label>
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(model => model.Name, new { data_bind = "value: Name", @class = "form-control input-md" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Contact Email</label>
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Email, new { data_bind = "value: youremail@gmail.com", @class = "form-control input-md" })
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-6">
+                            <input type="submit" value="Submit" class="btn btn-default" />
+                        </div>
+                    </div>
+                </fieldset>
+           
+        </div>
+
+ }
+

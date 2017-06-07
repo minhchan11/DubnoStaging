@@ -11,25 +11,32 @@
     <br />
     <div class="row">
 
-        @foreach (var post in Model)
+    @foreach (var post in Model)
+    {
+
+        @if (post.Approved == true && post.Pending == false)
         {
 
-            @if (post.Approved == true && post.Pending == false)
-            {
 
 
                 <div class="col-md-4">
                     <div class="post">
+                    <a href="@Url.Action("Details","Home", new { id = post.PostId })">
                         <div class="pi-img-wrapper">
                             <img src="@post.ImageName" class="img-responsive">
                         </div>
-                        <h4>
-                            @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })
-                        </h4>
+                        <h4>@post.Title</h4>
 
-                        <h5>@post.Name</h5>
                         <h5>@post.Description</h5>
                         <h5>@post.City, @post.State</h5>
+                        <h5>@post.PostDate</h5>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <p>@Html.ActionLink("Delete", "Delete", new { id = post.PostId })</p>
+
+                        }
+
+                    </a>
                     </div>
                 </div>
             }

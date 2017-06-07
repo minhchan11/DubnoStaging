@@ -13,28 +13,16 @@
             });
         });
 
-        //$(".click-details").click(function () {
-        //    $.ajax({
-        //        type: 'GET',
-        //        dataType: 'html',
-        //        url: 'Home/Details/' + this.id,
-        //        success: function (result) {
-        //            $('.return-details').html(result);
-        //        }
-        //    });
-        //});
+    });
 
+//navbar fixed position, changes the class in order to get the scroll affect
 
-        //$(".delete-post").click(function () {
-        //    $.ajax({
-        //        type: "POST",
-        //        url: 'Home/Delete/' + this.value,
-        //        success: function (result) {
-        //            console.log("result" + result);
-        //            var postId = result.id.toString();
-        //            console.log("postId" + postId);
-        //            $('.each-' + postId).remove();
-        //        }
-        //    });
-        //});
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 5) {
+                $(".navbar-me").addClass("fixed-me");
+            } else {
+                $(".navbar-me").removeClass("fixed-me");
+            }
+        });
     });

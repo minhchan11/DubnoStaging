@@ -8,8 +8,8 @@ using Dubno.Models;
 namespace Dubno.Migrations
 {
     [DbContext(typeof(DubnoDbContext))]
-    [Migration("20170605181025_Initial")]
-    partial class Initial
+    [Migration("20170606192520_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

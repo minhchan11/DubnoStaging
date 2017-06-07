@@ -30,7 +30,7 @@ namespace Dubno.Controllers
         public IActionResult Index()
         {
             //returns the view with a list of all the approved posts
-            return View(db.Posts.OrderBy(s => s.PostDate).ToList());
+            return View(db.Posts.OrderByDescending(a => a.PostDate).ToList());
         }
 
         public IActionResult About()
@@ -52,22 +52,26 @@ namespace Dubno.Controllers
         public IActionResult AdminView()
         {
             //returns the view with a list of all unapproved posts
-            return View(db.Posts.OrderBy(s => s.PostDate).ToList());
+            return View(db.Posts.OrderByDescending(a => a.PostDate).ToList());
         }
+
+
         public IActionResult Details(int id)
         {
            //returns view with the specific postId 
 
             var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
 
-            //var nextID = db.Posts.OrderBy(i => i.PostId)
-            //         .SkipWhile(i => i.PostId != id)
-            //         .Skip(1)
-            //         .Select(i => i.PostId);
-            //ViewBag.NextID = nextID;
+            var nextID = db.Posts.OrderBy(i => i.PostId)
+                         .SkipWhile(i => i.PostId != id)
+                         .Skip(1)
+                         .Select(i => i.PostId);
+            ViewBag.NextID = nextID;
 
             return View(thisPost);
         }
+
+
 
 
         public IActionResult SuggestPost()

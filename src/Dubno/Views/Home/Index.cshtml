@@ -15,19 +15,25 @@
 
                 <div class="post">
                     <a href="@Url.Action("Details","Home", new { id = post.PostId })">
-                        <div class="pi-img-wrapper">
+                        <div class="image">
                             <img src="@post.ImageName" class="img-responsive">
                         </div>
-                        <h4>@post.Title</h4>
+                       
+                     
+                        <div class="row text">
+                          
+                            <h5>@post.Description</h5>
+                            <h5 class="pull-right">@post.City, @post.State</h5>
+                           
+                        </div>
+                        <div class="row">
 
-                        <h5>@post.Description</h5>
-                        <h5>@post.City, @post.State</h5>
-                        <h5>@post.PostDate</h5>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <p>@Html.ActionLink("Delete", "Delete", new { id = post.PostId })</p>
 
                         }
+                        </div>
 
                     </a>
                  </div>

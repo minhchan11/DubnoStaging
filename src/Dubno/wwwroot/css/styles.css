@@ -5,6 +5,7 @@
     html,
     body {
         overflow-x: hidden;
+        font-family: 'Source Sans Pro', sans-serif;
     }
 
     body {
@@ -65,24 +66,28 @@
 
 
  
-*, *:before, *:after {box-sizing:  border-box !important;}
 
 
     .index {
-
-     -webkit-column-width: 300px;
-     -webkit-column-gap: 5px; 
+      -moz-column-width: 30em;
+     -webkit-column-width: 30em;
+     -moz-column-gap: 5em;
+     -webkit-column-gap:5em; 
   
     }
 
     .post {
      display: inline-block;
-     padding: 5px;
-     margin: 10px;
+     text-align:center;
+     min-width: 100%;
+     padding:  1rem;
      width:  100%; 
     }
 
-
+    .text{
+        text-align: justify;
+        padding:  4rem;
+    }
 
 
 

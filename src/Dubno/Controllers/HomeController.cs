@@ -156,7 +156,36 @@ namespace Dubno.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        public async Task<IActionResult> Paging(string sortOrder, int? page)
+        {
+            ViewData["CurrentSort"] = sortOrder;
+
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+
+            var posts = from s in db.Posts
+                           select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    posts = posts.OrderByDescending(s => s.Title);
+                    break;
+                case "Date":
+                    posts = posts.OrderBy(s => s.PostDate);
+                    break;
+                case "date_desc":
+                    posts = posts.OrderByDescending(s => s.PostDate);
+                    break;
+                default:
+                    posts = posts.OrderBy(s => s.PostDate);
+                    break;
+            }
+
+
+            int pageSize = 3;
+            return View(await PaginatedList<Post>.CreateAsync(posts.AsNoTracking(), page ?? 1, pageSize));
+        }
+
 
     }
 

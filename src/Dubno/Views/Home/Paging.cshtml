@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Paging";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model PaginatedList<Dubno.Models.Post>
+
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <a asp-action="Paging" asp-route-sortOrder="@ViewData["NameSortParm"]">Last Name</a>
+        <a asp-action="Paging" asp-route-sortOrder="@ViewData["DateSortParm"]">Enrollment Date</a>
+
+        @foreach (var post in Model)
+        {
+
+            @if (post.Approved == true && post.Pending == false)
+            {
+
+
+
+                <div class="col-md-4">
+                    <div class="post">
+                        <a href="@Url.Action("Details","Home", new { id = post.PostId })">
+                            <div class="pi-img-wrapper">
+                                <img src="@post.ImageName" class="img-responsive">
+                            </div>
+                            <h4>@post.Title</h4>
+
+                            <h5>@post.Description</h5>
+                            <h5>@post.City, @post.State</h5>
+                            <h5>@post.PostDate</h5>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <p>@Html.ActionLink("Delete", "Delete", new { id = post.PostId })</p>
+
+                            }
+
+                        </a>
+                    </div>
+                </div>
+            }
+
+        }
+        <div class="row">
+
+
+
+      @{
+          var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+          var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+
+        <a asp-action="Paging"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-page="@(Model.PageIndex - 1)"
+           class="btn btn-default @prevDisabled">
+            Previous
+        </a>
+        <a asp-action="Paging"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-page="@(Model.PageIndex + 1)"
+           class="btn btn-default @nextDisabled">
+            Next
+        </a>
+
+        </div>
+    </div>
+</div>

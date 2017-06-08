@@ -62,16 +62,8 @@ namespace Dubno.Controllers
 
             var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
 
-            var nextID = db.Posts.OrderBy(i => i.PostId)
-                         .SkipWhile(i => i.PostId != id)
-                         .Skip(1)
-                         .Select(i => i.PostId);
-            ViewBag.NextID = nextID;
-
             return View(thisPost);
         }
-
-
 
 
         public IActionResult SuggestPost()
@@ -156,15 +148,32 @@ namespace Dubno.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Paging(string sortOrder, int? page)
+        public async Task<IActionResult> Paging(string sortOrder, string currentFilter,
+    string searchString, int? page)
         {
             ViewData["CurrentSort"] = sortOrder;
-
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
 
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+
             var posts = from s in db.Posts
                            select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                posts = posts.Where(s => s.Title.Contains(searchString)
+                                       || s.Description.Contains(searchString));
+            }
             switch (sortOrder)
             {
                 case "name_desc":
@@ -177,7 +186,7 @@ namespace Dubno.Controllers
                     posts = posts.OrderByDescending(s => s.PostDate);
                     break;
                 default:
-                    posts = posts.OrderBy(s => s.PostDate);
+                    posts = posts.OrderBy(s => s.Title);
                     break;
             }
 

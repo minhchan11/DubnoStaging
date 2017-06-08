@@ -6,60 +6,84 @@
     body {
         overflow-x: hidden;
     }
+
     body {
         padding-top: 100px;
     }
+
     .footer {
         padding: 1px;
         background-color: black;
         color: white;
         text-align: center;
         margin-top: 30px;
-
     }
 
     .navbar {
-       background-color: white;
-    }
-    .fixed-me{
-        transition: all 1s ;
+        background-color: white;
     }
 
-    .fixed-me{
-        background-color:#fff !important;
-        padding: 5px  !important;
+    .fixed-me {
+        transition: all 1s;
+    }
+
+    .fixed-me {
+        background-color: #fff !important;
+        padding: 5px !important;
         margin-bottom: 5px;
         position: fixed;
-        top:0;
-	    z-index:888;
+        top: 0;
+        z-index: 888;
         width: 100%;
-         box-shadow: 0 0 5px rgba(0,0,0,.8);
-    
+        box-shadow: 0 0 5px rgba(0,0,0,.8);
     }
 
-        .navbar-me{
-        transition: all 1s ;
+    .navbar-me {
+        transition: all 1s;
     }
 
-        .navbar-me{
+    .navbar-me {
         padding: 10px 0px;
         background-color: white;
         top: 0px;
         border: 0px;
         border-radius: 0px;
-        color:black;
+        color: black;
     }
-        .navbar a {
-          color: black;
-        }
+
+    .navbar a {
+        color: black;
+    }
 
 
-        /*index page*/
+    /*index page*/
 
-        .post a {
-            color: black;
-            text-decoration: none;
-        }
+    .post a {
+        color: black;
+        text-decoration: none;
+    }
+
+
+ 
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+
+    .index {
+
+     -webkit-column-width: 300px;
+     -webkit-column-gap: 5px; 
+  
+    }
+
+    .post {
+     display: inline-block;
+     padding: 5px;
+     margin: 10px;
+     width:  100%; 
+    }
+
+
+
 
 
 
@@ -67,24 +91,19 @@
     /*details page*/
 
     .card {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    margin-bottom: 15px;
-}
-
-    /* On mouse-over, add a deeper shadow */
-    .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        margin-bottom: 15px;
     }
+
+        /* On mouse-over, add a deeper shadow */
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
 
     .card-block {
         padding: 10px;
     }
-
-
-
-
 }
-
 

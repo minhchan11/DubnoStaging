@@ -1,54 +1,48 @@
 ﻿@{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Admin Portal";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model IEnumerable<Dubno.Models.Post>
 
-
 @using System.Security.Claims
 
 @if (User.Identity.IsAuthenticated)
 {
-   
-        <h4>Hello @User.Identity.Name!</h4>
 
-<h1>Needs Approval</h1>
-<div class="container">
-    <div class="row">
+    <div class="container admin-view">
+        <h3 class="title">Submitted Posts</h3>
+        <div class="row">
 
-        @foreach (var post in Model)
-        {
-
-            @if (post.Approved == false && post.Pending == true)
+            @foreach (var post in Model)
             {
 
-                   <div id="post-@post.PostId">
-                    <div class="col-md-4">
-                        <div>
-                            <div class="pi-img-wrapper">
-                                <img src="@post.ImageName" class="img-responsive">
+                @if (post.Approved == false && post.Pending == true)
+                {
+
+                    <div id="post-@post.PostId">
+                        <div class="col-md-4">
+                            <div>
+                                <div class="pi-img-wrapper">
+                                    <img src="@post.ImageName" class="img-responsive">
+                                </div>
+                                <h1> @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })</h1>
+                                <h5>@post.Name</h5>
+                                <h5>@post.Description</h5>
+                                <h5>@post.City, @post.State</h5>
+                                <h5>@post.PostDate</h5>
+
+                                <p>@Html.ActionLink("Edit", "Edit", new { id = post.PostId })</p>
+                                <p>@Html.ActionLink("Permantely Delete", "Delete", new { id = post.PostId })</p>
+                                <button class="post btn btn-default" value="@post.PostId">Post</button>
+
                             </div>
-                            <h1>
-                                @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })
-                            </h1>
-                            <h5>@post.Name</h5>
-                            <h5>@post.Description</h5>
-                            <h5>@post.City, @post.State</h5>
-                            <h5>@post.PostDate</h5>
-
-
-                            <p>@Html.ActionLink("Edit", "Edit", new { id = post.PostId })</p>
-                            <p>@Html.ActionLink("Deny", "Delete", new { id = post.PostId })</p>
-                            <button class="post" value="@post.PostId">Post</button>
-    
-                       </div>
+                        </div>
                     </div>
-                   </div>
+
+                }
 
             }
-
-        }
+        </div>
     </div>
-</div>
 }

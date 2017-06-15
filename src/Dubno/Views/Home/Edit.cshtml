@@ -6,20 +6,15 @@
 
 @model Dubno.Models.Post
 
-
-
-<h2>Edit</h2>
-<hr />
-
 @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
 {
     <div class="container">
 
         <fieldset>
 
-            <legend>Edit Post</legend>
+            <legend class="title">Edit Post</legend>
 
-    @Html.HiddenFor(model => model.PostId)
+            @Html.HiddenFor(model => model.PostId)
 
             <div class="form-group">
                 <label class="col-md-4 control-label">Photo</label>
@@ -59,7 +54,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Story</label>
                 <div class="col-md-6">
-                    @Html.TextAreaFor(model => model.Description, new { data_bind = "value: Story", @class = "form-control input-md" })
+                    @Html.TextAreaFor(model => model.Description, new { data_bind = "value: Story", @class = "form-control input-md", @style = "height:300px;" })
                 </div>
             </div>
 
@@ -84,8 +79,6 @@
                     @Html.TextAreaFor(model => model.AdminComment, new { data_bind = "value: Story", @class = "form-control input-md" })
                 </div>
             </div>
-
-
 
 
             <div class="form-group">

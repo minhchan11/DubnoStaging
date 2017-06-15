@@ -15,17 +15,14 @@ namespace Dubno.Models
 
         [Key]
         public int SubscriberId { get; set; }
-        //[Required]
+        [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        //[Required]
+        [Required]
         public string FirstName { get; set; }
-        //[Required]
+        [Required]
         public string LastName { get; set; }
-        //[Required]
-        public string City { get; set; }
-        //[Required]
-        public string State { get; set; }
+
 
     }
 }

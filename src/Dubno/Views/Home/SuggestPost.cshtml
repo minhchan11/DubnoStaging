@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Contribute";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,77 +11,81 @@
 {
     <div class="container">
 
-                <fieldset>
+        <fieldset>
 
-                    <legend>Contribute a Story</legend>
+            <h2 class="title">Contribute a Story</h2>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Photo</label>
-                        <div class="col-md-6">
-                            <input type="file" name="files" />
-                        </div>
-                    </div>
+            <p class="title " id="disclaimer">Disclaimer: All data and information provided on this site is for informational purposes only. wpthemesplugin.com makes no representations as to accuracy, completeness, currentness, suitability, or validity of any information on this site and will not be liable for any errors, omissions, or delays in this information or any losses, injuries, or damages arising from its display or use. All information is provided on an as-is basis. All e-mails, comments or other forms of communication received by WDD are the property of WDD and may be used for editorial or technical improvements to the Website at our discretion without any form of compensation being owed to the sender of said communications.</p>
 
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">City</label>
-                        <div class="col-md-6">
-                            <select name="City" id="City" class="form-control">
-                                <option value="Dubno">Dubno</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">State</label>
-                        <div class="col-md-6">
-                            <select name="State" id="State" class="form-control">
-                                <option value="Ukraine">Ukraine</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Title</label>
-                        <div class="col-md-6">
-                            @Html.TextBoxFor(model => model.Title, new { data_bind = "value: Title", @class = "form-control input-md" })
-          
-                        </div>
-                    </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Photo</label>
+                <div class="col-md-6">
+                    <input type="file" name="files" />
+                </div>
+            </div>
 
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Story</label>
-                        <div class="col-md-6">
-                            @Html.TextAreaFor(model => model.Description, new { data_bind = "value: Story", @class = "form-control input-md" })
-                        </div>
-                    </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">City</label>
+                <div class="col-md-6">
+                    <select name="City" id="City" class="form-control">
+                        <option value="Dubno">Dubno</option>
+                    </select>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Your Name</label>
-                        <div class="col-md-6">
-                            @Html.TextBoxFor(model => model.Name, new { data_bind = "value: Name", @class = "form-control input-md" })
-                        </div>
-                    </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">State</label>
+                <div class="col-md-6">
+                    <select name="State" id="State" class="form-control">
+                        <option value="Ukraine">Ukraine</option>
+                    </select>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Contact Email</label>
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.Email, new { data_bind = "value: youremail@gmail.com", @class = "form-control input-md" })
+            <div class="form-group">
+                <label class="col-md-4 control-label">Title</label>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(model => model.Title, new { data_bind = "value: Title", @class = "form-control input-md" })
 
-                        </div>
-                    </div>
+                </div>
+            </div>
 
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label"></label>
-                        <div class="col-md-6">
-                            <input type="submit" value="Submit" class="btn btn-default" />
-                        </div>
-                    </div>
-                </fieldset>
-           
-        </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Story</label>
+                <div class="col-md-6">
+                    @Html.TextAreaFor(model => model.Description, new { data_bind = "value: Story", @class = "form-control input-md", @style = "height: 300px;" })
+                </div>
+            </div>
 
- }
+            <div class="form-group">
+                <label class="col-md-4 control-label">Your Name</label>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(model => model.Name, new { data_bind = "value: Name", @class = "form-control input-md" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Contact Email</label>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(model => model.Email, new { data_bind = "value: youremail@gmail.com", @class = "form-control input-md" })
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-6">
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+
+}
 

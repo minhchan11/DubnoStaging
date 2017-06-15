@@ -19,7 +19,7 @@ namespace Dubno.Controllers
 
         public HomeController(IHostingEnvironment environment)
         {
-           
+
             _environment = environment;
         }
 
@@ -29,6 +29,9 @@ namespace Dubno.Controllers
 
         public IActionResult Index()
         {
+            ViewData["FeaturedPosts"] = db.Posts.OrderByDescending(a => a.PostDate).ToList().Take(3);
+
+
             //returns the view with a list of all the approved posts
             return View(db.Posts.OrderByDescending(a => a.PostDate).ToList());
         }
@@ -58,7 +61,8 @@ namespace Dubno.Controllers
 
         public IActionResult Details(int id)
         {
-           //returns view with the specific postId 
+            //returns view with the specific postId 
+            ViewData["FeaturedPosts"] = db.Posts.OrderByDescending(a => a.PostDate).ToList().Take(4);
 
             var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
 
@@ -97,11 +101,9 @@ namespace Dubno.Controllers
         }
         //end handling new content
 
- 
 
         public IActionResult Edit(int id)
         {
-           
             var thisPlace = db.Posts.FirstOrDefault(places => places.PostId == id);
             return View(thisPlace);
         }
@@ -109,7 +111,6 @@ namespace Dubno.Controllers
         [HttpPost]
         public IActionResult Edit(Post post)
         {
-            //this method will allow the admin to edit the post
             post.PostDate = DateTime.Now;
             post.Approved = false;
             post.Pending = true;
@@ -145,56 +146,8 @@ namespace Dubno.Controllers
             var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
             db.Posts.Remove(thisPost);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminView");
         }
-
-        public async Task<IActionResult> Paging(string sortOrder, string currentFilter,
-    string searchString, int? page)
-        {
-            ViewData["CurrentSort"] = sortOrder;
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
-
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-
-            ViewData["CurrentFilter"] = searchString;
-
-            var posts = from s in db.Posts
-                           select s;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                posts = posts.Where(s => s.Title.Contains(searchString)
-                                       || s.Description.Contains(searchString));
-            }
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    posts = posts.OrderByDescending(s => s.Title);
-                    break;
-                case "Date":
-                    posts = posts.OrderBy(s => s.PostDate);
-                    break;
-                case "date_desc":
-                    posts = posts.OrderByDescending(s => s.PostDate);
-                    break;
-                default:
-                    posts = posts.OrderBy(s => s.Title);
-                    break;
-            }
-
-
-            int pageSize = 3;
-            return View(await PaginatedList<Post>.CreateAsync(posts.AsNoTracking(), page ?? 1, pageSize));
-        }
-
 
     }
 

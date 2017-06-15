@@ -5,6 +5,8 @@
 //using Microsoft.AspNetCore.Mvc;
 //using Dubno.Models;
 //using Microsoft.AspNetCore.Hosting;
+//using Microsoft.EntityFrameworkCore;
+//using ReflectionIT.Mvc.Paging;
 
 //namespace Dubno.Controllers
 //{
@@ -18,15 +20,20 @@
 //            _env = env;
 //        }
 
+//        private DubnoDbContext db = new DubnoDbContext();
+
+//        public async Task<IActionResult> Index(int page = 1)
+//        {
+//            var qry = db.Posts.AsNoTracking().OrderBy(p => p.Title);
+//            var model = await PagingList<Post>.CreateAsync(qry, 3, page);
+//            return View(model);
+//        }
+
 //        public IActionResult SendEmail()
 //        {
 //            return View();
 //        }
 
-//        public IActionResult SentEmail()
-//        {
-//            return View();
-//        }
 
 //        [HttpPost]
 //        public async Task<ActionResult> SendEmail(EmailViewModel model)
@@ -42,18 +49,11 @@
 //        }
 
 
-//        [HttpPost]
-//        public async Task<ActionResult> SendBulkEmail(BulkEmailViewModel model)
-//        {
-//            var emailTemplate = "WelcomeEmail";
-//            var emailSubject = "Welcome to our site.";
-//            var message = EMailTemplate(emailTemplate);
-//            message = message.Replace("@ViewBag.Name", model.Username);
-//            MessageServices msg = new MessageServices();
-//            await msg.SendBulkEmailAsync(model.Username, model.Email, emailSubject, message, model.Attachments);
-//            ModelState.AddModelError("", "Email successfully sent.");
-//            return View("BulkEmail");
-//        }
+//        //public IActionResult SentEmail()
+//        //{
+//        //    return View();
+//        //}
+
 
 //        public string EMailTemplate(string template)
 //        {

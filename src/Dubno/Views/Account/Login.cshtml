@@ -1,20 +1,43 @@
 ﻿@{
-    ViewData["Title"] = "Log In";
+    ViewData["Title"] = "Admin Portal";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Dubno.ViewModels
 
 @model LoginViewModel
 
-<h2>Log in with your account</h2>
-<hr />
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
+<div class="container admin-login">
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
 
-    <input type="submit" value="Log in" class="btn btn-default" />
-}
+    <h2>Admin Portal</h2>
+    <hr />
+    @using (Html.BeginForm(new { @class = "form-horizontal" }))
+    {
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Email</label>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.Email, new { data_bind = "value: youremail@gmail.com", @class = "form-control input-md" })
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="form-group">
+            <label class="col-md-4 control-label">Password</label>
+            <div class="col-md-6">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control input-md" })
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-6">
+                <input type="submit" value="Log in" class="btn btn-default" />
+            </div>
+        </div>
+
+
+    }
+
+</div>

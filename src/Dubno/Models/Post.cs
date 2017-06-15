@@ -15,23 +15,25 @@ namespace Dubno.Models
 
         [Key]
         public int PostId { get; set; }
-        //[Required]
+        [Required]
         public string Title { get; set; }
-        //[Required]
+        [Required]
         public string Description { get; set; }
-        //[Required]
+        [Required]
         public string Name { get; set; }
-        //[Required]
+        [Required]
         public string City { get; set; }
-        //[Required]
+        [Required]
         public string State { get; set; }
 
-        //[Required]
+        [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         public bool Approved { get; set; }
+
         public bool Pending { get; set; }
+
         public string AdminComment { get; set; }
 
         [DataType(DataType.Date)]
@@ -39,5 +41,6 @@ namespace Dubno.Models
         public DateTime PostDate { get; set; }
 
         public string ImageName { get; set; }
+
     }
 }

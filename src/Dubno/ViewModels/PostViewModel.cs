@@ -36,6 +36,7 @@ namespace Dubno.ViewModels
         public string State { get; set; }
 
         [Required]
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
 

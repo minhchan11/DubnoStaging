@@ -1,14 +1,10 @@
 ﻿@model Dubno.Models.EmailViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Newsletter";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<br />
-<a asp-action="BulkEmail" asp-controller="Home">BulkEmail</a>
-
-<br />
 <form asp-action="SendEmail" asp-controller="Home" method="post" class="form-horizontal" enctype="multipart/form-data">
 
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>

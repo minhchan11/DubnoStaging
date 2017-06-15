@@ -3,41 +3,72 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 @model IEnumerable<Dubno.Models.Post>
 
-<div class="container index">
+<div class="container-fluid index-feature">
+    <h1 class="title">People of Dubno</h1>
 
-    @foreach (var post in Model)
+    @foreach (var post in ViewData["FeaturedPosts"] as IEnumerable<Dubno.Models.Post>)
     {
-
         @if (post.Approved == true && post.Pending == false)
         {
+            <a href="@Url.Action("Details","Home", new { id = post.PostId })">
+                <div class="col-md-4">
+                    <img src="@post.ImageName">
 
-                <div class="post">
+                </div>
+            </a>
+
+        }
+    }
+
+
+</div>
+
+
+
+
+
+<div class="row title">
+    <h2>Latest Stories</h2>
+</div>
+
+<div class="container index">
+    <div>
+
+        @foreach (var post in Model)
+        {
+
+            @if (post.Approved == true && post.Pending == false)
+            {
+
+                <div class="story">
                     <a href="@Url.Action("Details","Home", new { id = post.PostId })">
                         <div class="image">
                             <img src="@post.ImageName" class="img-responsive">
                         </div>
-                       
-                     
+
+
                         <div class="row text">
-                          
-                            <h5>@post.Description</h5>
-                            <h5 class="pull-right">@post.City, @post.State</h5>
-                           
+
+                            <p>@post.Description</p>
+                            <p class="pull-right">@post.City, @post.State</p>
+
                         </div>
                         <div class="row">
 
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <p>@Html.ActionLink("Delete", "Delete", new { id = post.PostId })</p>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <p>@Html.ActionLink("Delete", "Delete", new { id = post.PostId })</p>
 
-                        }
+                            }
                         </div>
 
                     </a>
-                 </div>
+                </div>
             }
 
         }
+    </div>
 </div>

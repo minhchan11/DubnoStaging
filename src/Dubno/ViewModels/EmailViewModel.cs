@@ -21,17 +21,4 @@ namespace Dubno.Models
         public ICollection<IFormFile> Attachments { get; set; }
     }
 
-    public class BulkEmailViewModel
-    {
-        [Required]
-        [Display(Name = "Username")]
-        public string Username { get; set; }
-
-        [Required]
-        [Display(Name = "Email")]
-        public string[] Email { get; set; }
-
-        [Display(Name = "Attachment")]
-        public ICollection<IFormFile> Attachments { get; set; }
-    }
 }

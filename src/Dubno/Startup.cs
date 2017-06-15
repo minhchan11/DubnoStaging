@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Dubno.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
+using ReflectionIT.Mvc.Paging;
 
 namespace Dubno
 {
@@ -29,6 +29,13 @@ namespace Dubno
             services.AddTransient<SampleData>();
             //makes this app a Model View Controller app
             services.AddMvc();
+
+            services.AddPaging(options => {
+                options.ViewName = "Bootstrap4";
+                options.HtmlIndicatorDown = " <span>&darr;</span>";
+                options.HtmlIndicatorUp = " <span>&uarr;</span>";
+            });
+
             //add entityframework to the app, using an extension of DB context that connects to our own DubnoDbContext
             services.AddEntityFramework()
                .AddDbContext<DubnoDbContext>(options =>

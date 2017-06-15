@@ -14,11 +14,10 @@
         <h3 class="title">Submitted Posts</h3>
         <div class="row">
 
-            @foreach (var post in Model)
-            {
-
-                @if (post.Approved == false && post.Pending == true)
-                {
+    @foreach (var post in Model)
+    {
+        @if (post.Approved == false && post.Pending == true)
+          {
 
                     <div id="post-@post.PostId">
                         <div class="col-md-4">
@@ -43,6 +42,9 @@
                 }
 
             }
+
+           
+
         </div>
     </div>
-}
+  }

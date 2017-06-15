@@ -5,37 +5,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form asp-action="SendEmail" asp-controller="Home" method="post" class="form-horizontal" enctype="multipart/form-data">
+<h2 class="title">Newsletter</h2>
+<hr />
 
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+@using (Html.BeginForm("SendEmail", "Email", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+
+@*<form asp-action="SendEmail" asp-controller="Home" method="post" class="form-horizontal title" enctype="multipart/form-data">*@
+
+    @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
 
     <div class="form-group">
-        <label>UserName</label>
-        <label asp-for="Username" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
+        <label class="col-md-4 control-label">UserName</label>
+        @*<label asp-for="Username" class="col-md-2 control-label"></label>*@
+        <div class="col-md-6">
             <input asp-for="Username" class="form-control" />
         </div>
     </div>
 
     <div class="form-group">
-        <label>Email</label>
-        <label asp-for="Email" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
+        <label class="col-md-4 control-label">Email</label>
+        @*<label asp-for="Email" class="col-md-2 control-label"></label>*@
+        <div class="col-md-6">
             <input asp-for="Email" class="form-control" />
         </div>
     </div>
 
     <div class="form-group">
-        <label>Attachments</label>
-        <label asp-for="Attachments" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
+        <label class="col-md-4 control-label">Attachments</label>
+        @*<label asp-for="Attachments" class="col-md-2 control-label"></label>*@
+        <div class="col-md-6">
             <input asp-for="Attachments" class="form-control" type="file" multiple="" />
         </div>
     </div>
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-offset-4 col-md-10">
             <input type="submit" class="btn btn-default" value="Send" />
         </div>
     </div>
-</form>
+@*</form>*@
+}

@@ -12,18 +12,20 @@
 
     .footer {
         padding: 1px;
+        padding-top: 10px;
         background-color: black;
         color: white;
-        text-align: center;
-        margin-top: 30px;
-    
+        text-align: center;    
+       
     }
+
+ 
 
      /*Navbar*/
 
-    .nav-logo {
-        height: 50px;
-        margin-top: -15px;
+    .nav-logo img{
+      width: 300px;
+      left: -15px;
     }
     .navbar {
         background-color: white;
@@ -94,10 +96,6 @@
 
 
 
-    .index-feature {
-        padding-top: 40px;
-        padding-bottom: 50px;
-    }
 
 
     .title {
@@ -105,13 +103,54 @@
         margin: 40px;
     }
 
-    .index {
+    .mission {
+        background-color: black;
+        color: white;
+        text-align: justify;
+        padding: 80px;
+        padding-top: 90px;
+       
+        position:fixed;
+        width:100%;    
+        margin-top: -30px;
+        margin-bottom: 400px;
+     
+    }
+
+    .statement {
+        margin-top: -20px;
+    }
+
+     .intro{
+       margin-left: 220px;
+       margin-top: -90px;
+       padding-top: 20px;
+     }
+
+   
+
+    .scroll{
+       text-align: center;
+       margin-top: 50em;
+       margin-left: -100px;
+       margin-right: -100px;
+       
+       padding-right: 200px;
+       padding-top: 80px;
+       padding-bottom: 100px;
+       padding-left: 200px;
+       background-color: white;
+       position:relative;
+    }
+
+     .index {
      -moz-column-width: 30em;
      -webkit-column-width: 30em;
      -moz-column-gap: 5em;
      -webkit-column-gap:5em; 
-  
     }
+
+    
 
     .story a {
     color: black;
@@ -240,6 +279,7 @@
 
     .three-view{
         margin-bottom: 60px;
+        text-align: center;
     }
 
     .newsletter{
@@ -247,31 +287,6 @@
     }
 
 
-    .mission {
-        background-color: black;
-        color: white;
-        text-align: justify;
-        padding: 80px;
-        padding-top: 100px;
-        padding-bottom: 100px;
-        position:fixed;
-        width:100%;    
-        top:0;
-        left:0;
-    }
-
-    .scroll {
-      text-align: center;
-       padding-top: 80px;
-       padding-bottom: 50px;
-       width:105%; 
-       background: white;
-       margin-top:35%;
-       z-index:700;
-       position:relative;
-       left:-30px;
-  
-    }
 
 
 

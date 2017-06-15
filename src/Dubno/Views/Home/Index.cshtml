@@ -6,7 +6,7 @@
 
 @model IEnumerable<Dubno.Models.Post>
 
-<div class="container-fluid index-feature">
+@*<div class="container-fluid index-feature">
     <h1 class="title">People of Dubno</h1>
 
     @foreach (var post in ViewData["FeaturedPosts"] as IEnumerable<Dubno.Models.Post>)
@@ -24,51 +24,67 @@
     }
 
 
+</div>*@
+
+<div>
+    <div class="row mission">
+  
+            <img src="~/images/text.png" class="intro"/>
+       
+       
+        <div class="row statement">
+            <h2 class="title">Our Mission</h2>
+            <hr />
+            <br />
+            <div class="col-md-6">
+                <p>Integrity Auto Sales provides a unique car buying experience to the customers in the Willamette Valley. One that focuses on customer satisfaction first. We understand that vehicle purchasing is a necessary, but sometimes unpleasant experience. Our goal is to provide the customer with an enjoyable, honest service by satisfying individual customers practical transportation needs with a quality product.</p>
+            </div>
+            <div class="col-md-6">
+                <p> with a 30 day limited warranty. Our company will make a profit by generating sales. It will provide job satisfaction and fair compensation to its employees, and a fair return to its owners. Hard work and performance is rewarded through bonuses and commissions. Job satisfaction is very important for employees and owners, we will create a work environment that is enjoyable and profitable for all.</p>
+            </div>
+        </div>
+    </div>
+    <br />
 </div>
 
+<div class="scroll">
+    <div class="index">
+        <div>
 
-
-
-
-<div class="row title">
-    <h2>Latest Stories</h2>
-</div>
-
-<div class="container index">
-    <div>
-
-        @foreach (var post in Model)
-        {
-
-            @if (post.Approved == true && post.Pending == false)
+            @foreach (var post in Model)
             {
 
-                <div class="story">
-                    <a href="@Url.Action("Details","Home", new { id = post.PostId })">
-                        <div class="image">
-                            <img src="@post.ImageName" class="img-responsive">
-                        </div>
+                @if (post.Approved == true && post.Pending == false)
+                {
+
+                    <div class="story">
+                        <a href="@Url.Action("Details","Home", new { id = post.PostId })">
+                            <div class="image">
+                                <img src="@post.ImageName" class="img-responsive">
+                            </div>
 
 
-                        <div class="row text">
+                            <div class="row text">
 
-                            <p>@post.Description</p>
-                            <p class="pull-right">@post.City, @post.State</p>
+                                <p>@post.Description</p>
+                                <p class="pull-right">@post.City, @post.State</p>
 
-                        </div>
-                        <div class="row">
+                            </div>
+                            <div class="row">
 
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                <p>@Html.ActionLink("Delete", "Delete", new { id = post.PostId })</p>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <p>@Html.ActionLink("Delete", "Delete", new { id = post.PostId })</p>
 
-                            }
-                        </div>
+                                }
+                            </div>
 
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                }
+
             }
-
-        }
+        </div>
     </div>
+
 </div>

@@ -12,12 +12,23 @@
         </div>
         <div class="row title">
 
-            <p class="">@Html.DisplayFor(model => model.Description)</p>
+            <p>@Html.DisplayFor(model => model.Description)</p>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <br />
+                <p>User Email: @Html.DisplayFor(model => model.Email)</p>
+                <br />
+                <p>Admin Comments:</p>
+                <p>@Html.DisplayFor(model => model.AdminComment)</p>
+            }
         </div>
 
     </div>
 </div>
 
+
+@if (!User.Identity.IsAuthenticated)
+{
 <h4 class="title">More Stories</h4>
 <div class="details-featured-posts row">
 
@@ -26,7 +37,7 @@
     {
         @if (post.Approved == true && post.Pending == false)
         {
-            <a href="@Url.Action("Details","Home", new { id = post.PostId })">
+            <a href="@Url.Action("Details", "Home", new { id = post.PostId })">
                 <div class="alt-story">
                     <img src="@post.ImageName">
                 </div>
@@ -35,3 +46,4 @@
     }
 
 </div>
+}

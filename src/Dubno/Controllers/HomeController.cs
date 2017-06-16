@@ -7,7 +7,9 @@ using Dubno.Models;
 using Dubno.ViewModels;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
-
+using MimeKit;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 
 namespace Dubno.Controllers
 {
@@ -69,6 +71,15 @@ namespace Dubno.Controllers
             return View(thisPost);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SendEmail(PostViewModel model)
+        {
+
+         
+
+
+            return RedirectToAction("Sent", "Email");
+        }
 
         public IActionResult SuggestPost()
         {
@@ -95,6 +106,26 @@ namespace Dubno.Controllers
             post.Approved = false;
             post.Pending = true;
             post.PostDate = DateTime.Now;
+
+            var emailMessage = new MimeMessage();
+
+
+            emailMessage.From.Add(new MailboxAddress("Keely", "keelyzglenn@gmail.com"));
+            emailMessage.To.Add(new MailboxAddress(newPost.Name, newPost.Email));
+            emailMessage.Subject = "Post Submission";
+            emailMessage.Body = new TextPart("html")
+            {
+                Text = string.Format("Dear " + newPost.Name + "<br/> Thank you for your contribution to Humans of Dubno. We hace received you submission and it is under review. You will recieve another email if any edits are made or if your post has been selected to display. <br> Thank you, <br> Humans of Dubno Staff")
+            };
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
+                client.Authenticate("keelyzglenn@gmail.com", "monkey1963");
+                await client.SendAsync(emailMessage).ConfigureAwait(false);
+                await client.DisconnectAsync(true).ConfigureAwait(false);
+            };
+
             db.Posts.Add(post);
             db.SaveChanges();
             return RedirectToAction("Index");

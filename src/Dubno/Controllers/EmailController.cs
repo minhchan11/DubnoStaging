@@ -10,6 +10,7 @@ using ReflectionIT.Mvc.Paging;
 using MimeKit;
 using MailKit.Net.Smtp;
 using MailKit.Security;
+using Dubno.ViewModels;
 
 namespace Dubno.Controllers
 {
@@ -28,19 +29,18 @@ namespace Dubno.Controllers
      
 
         [HttpPost]
-        public async Task<IActionResult> SendEmail(EmailViewModel model)
+        public async Task<IActionResult> SendEmail(PostViewModel model)
         {
            
                 var emailMessage = new MimeMessage();
 
 
                 emailMessage.From.Add(new MailboxAddress("Keely", "keelyzglenn@gmail.com"));
-                emailMessage.To.Add(new MailboxAddress("keely", "keelyzglenn@gmail.com"));
-                emailMessage.Subject = "Email confirmation";
-                emailMessage.Body = new TextPart("html")
-                {
-                    Text = string.Format("Dear <br/> Thank you for your registration, please click on the below link to complete your registration",
-                model.Username, Url.Action("SentEmail", "Email"))
+                emailMessage.To.Add(new MailboxAddress(model.Name, model.Email));
+                emailMessage.Subject = "Post Submission";
+            emailMessage.Body = new TextPart("html")
+            {
+                Text = string.Format("Dear " + model.Name + "<br/> Thank you for your contribution to Humans of Dubno. We hace received you submission and it is under review. You will recieve another email if any edits are made or if your post has been selected to display. <br> Thank you, <br> Humans of Dubno Staff")
                 };
 
                 using (var client = new SmtpClient())

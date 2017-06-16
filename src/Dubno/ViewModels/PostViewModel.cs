@@ -10,9 +10,7 @@ namespace Dubno.ViewModels
 {
     public class PostViewModel
     {
-        [Required]
-        [Display(Name = "Image")]
-        public ICollection<IFormFile> files { get; set; }
+        
 
         [Required]
         [Display(Name = "Description")]

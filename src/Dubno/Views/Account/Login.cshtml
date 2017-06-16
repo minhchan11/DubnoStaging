@@ -8,11 +8,17 @@
 
 <div class="container admin-login">
 
+   
 
     <h2>Admin Portal</h2>
     <hr />
     @using (Html.BeginForm(new { @class = "form-horizontal" }))
     {
+        @if (ViewData["error"] != null)
+        {
+            <p>@ViewData["error"]</p>
+           
+        }
 
         <div class="form-group">
             <label class="col-md-4 control-label">Email</label>
@@ -37,7 +43,9 @@
             </div>
         </div>
 
+    
 
     }
+
 
 </div>

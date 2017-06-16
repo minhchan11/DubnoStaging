@@ -40,7 +40,7 @@ namespace Dubno.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime PostDate { get; set; }
 
-        public string ImageName { get; set; }
+        public byte[] ImageName { get; set; }
 
     }
 }

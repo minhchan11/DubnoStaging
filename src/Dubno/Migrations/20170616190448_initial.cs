@@ -42,15 +42,15 @@ namespace Dubno.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     AdminComment = table.Column<string>(nullable: true),
                     Approved = table.Column<bool>(nullable: false),
-                    City = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    ImageName = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    ImageName = table.Column<byte[]>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
                     Pending = table.Column<bool>(nullable: false),
                     PostDate = table.Column<DateTime>(nullable: false),
-                    State = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true)
+                    State = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,11 +63,9 @@ namespace Dubno.Migrations
                 {
                     SubscriberId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    City = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    State = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -223,11 +221,6 @@ namespace Dubno.Migrations
                 name: "IX_AspNetUserRoles_RoleId",
                 table: "AspNetUserRoles",
                 column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_UserId",
-                table: "AspNetUserRoles",
-                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

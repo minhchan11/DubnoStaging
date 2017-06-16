@@ -8,18 +8,19 @@ using Dubno.Models;
 namespace Dubno.Migrations
 {
     [DbContext(typeof(DubnoDbContext))]
-    [Migration("20170606192520_initial")]
+    [Migration("20170616190448_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
+                .HasAnnotation("ProductVersion", "1.1.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Dubno.Models.ApplicationUser", b =>
                 {
-                    b.Property<string>("Id");
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
 
@@ -75,23 +76,29 @@ namespace Dubno.Migrations
 
                     b.Property<bool>("Approved");
 
-                    b.Property<string>("City");
+                    b.Property<string>("City")
+                        .IsRequired();
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .IsRequired();
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("ImageName");
+                    b.Property<byte[]>("ImageName");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<bool>("Pending");
 
                     b.Property<DateTime>("PostDate");
 
-                    b.Property<string>("State");
+                    b.Property<string>("State")
+                        .IsRequired();
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired();
 
                     b.HasKey("PostId");
 
@@ -103,15 +110,14 @@ namespace Dubno.Migrations
                     b.Property<int>("SubscriberId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("City");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("Email");
+                    b.Property<string>("FirstName")
+                        .IsRequired();
 
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("State");
+                    b.Property<string>("LastName")
+                        .IsRequired();
 
                     b.HasKey("SubscriberId");
 
@@ -120,7 +126,8 @@ namespace Dubno.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
                 {
-                    b.Property<string>("Id");
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
@@ -204,8 +211,6 @@ namespace Dubno.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetUserRoles");
                 });

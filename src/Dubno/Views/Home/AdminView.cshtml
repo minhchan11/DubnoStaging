@@ -23,7 +23,8 @@
                         <div class="col-md-4">
                             <div>
                                 <div class="pi-img-wrapper">
-                                    <img src="@post.ImageName" class="img-responsive">
+                                    <img src="data:image;base64,@System.Convert.ToBase64String(post.ImageName)" />
+                                   
                                 </div>
                                 <h1> @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })</h1>
                                 <h5>@post.Name</h5>

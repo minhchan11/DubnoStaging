@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using MimeKit;
 using MailKit.Net.Smtp;
 using MailKit.Security;
+using Microsoft.AspNetCore.Http;
 
 namespace Dubno.Controllers
 {
@@ -56,8 +57,15 @@ namespace Dubno.Controllers
 
         public IActionResult AdminView()
         {
+            var posts = db.Posts.OrderByDescending(a => a.PostDate).ToList();
+            foreach (var post in posts){
+            var bytes = post.ImageName;
+            var base64 = Convert.ToBase64String(bytes);
+            var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+
+            }
             //returns the view with a list of all unapproved posts
-            return View(db.Posts.OrderByDescending(a => a.PostDate).ToList());
+            return View();
         }
 
 
@@ -71,15 +79,6 @@ namespace Dubno.Controllers
             return View(thisPost);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> SendEmail(PostViewModel model)
-        {
-
-         
-
-
-            return RedirectToAction("Sent", "Email");
-        }
 
         public IActionResult SuggestPost()
         {
@@ -87,22 +86,11 @@ namespace Dubno.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Upload(PostViewModel newPost)
+        public async Task<IActionResult> Upload(PostViewModel newPost, IFormFile image)
         {
-            var fileName = "";
-            var uploads = Path.Combine(_environment.WebRootPath, "uploads");
-            foreach (var file in newPost.files)
-            {
-                if (file.Length > 0)
-                {
-                    fileName = file.FileName;
-                    using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
-                    {
-                        await file.CopyToAsync(fileStream);
-                    }
-                }
-            }
-            var post = new Post { ImageName = "/uploads/" + fileName, Description = newPost.Description, Title = newPost.Title, Name = newPost.Name, Email = newPost.Email, City = newPost.City, State = newPost.State };
+            byte[] profilePic = ConvertToBytes(image);
+            var post = new Post { Description = newPost.Description, Title = newPost.Title, Name = newPost.Name, Email = newPost.Email, City = newPost.City, State = newPost.State };
+            post.ImageName = profilePic;
             post.Approved = false;
             post.Pending = true;
             post.PostDate = DateTime.Now;
@@ -131,6 +119,7 @@ namespace Dubno.Controllers
             return RedirectToAction("Index");
         }
         //end handling new content
+
 
 
         public IActionResult Edit(int id)
@@ -179,6 +168,16 @@ namespace Dubno.Controllers
             db.SaveChanges();
             return RedirectToAction("AdminView");
         }
+
+
+        private byte[] ConvertToBytes(IFormFile image)
+        {
+            byte[] CoverImageBytes = null;
+            BinaryReader reader = new BinaryReader(image.OpenReadStream());
+            CoverImageBytes = reader.ReadBytes((int)image.Length);
+            return CoverImageBytes;
+        }
+
 
     }
 

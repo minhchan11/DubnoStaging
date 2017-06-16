@@ -16,12 +16,16 @@
 
             @Html.HiddenFor(model => model.PostId)
 
-            <div class="form-group">
+            @*<div class="form-group">
                 <label class="col-md-4 control-label">Photo</label>
                 <div class="col-md-6">
-                    <input type="file" name="files" />
+                    <input type="file" name="image" />
                 </div>
-            </div>
+            </div>*@
+
+            <img src="data:image;base64,@System.Convert.ToBase64String(Model.ImageName)" />
+
+
 
 
             <div class="form-group">

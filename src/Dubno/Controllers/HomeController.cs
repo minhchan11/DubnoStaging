@@ -57,15 +57,10 @@ namespace Dubno.Controllers
 
         public IActionResult AdminView()
         {
-            var posts = db.Posts.OrderByDescending(a => a.PostDate).ToList();
-            foreach (var post in posts){
-            var bytes = post.ImageName;
-            var base64 = Convert.ToBase64String(bytes);
-            var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
-
-            }
+            
+        
             //returns the view with a list of all unapproved posts
-            return View();
+            return View(db.Posts.OrderByDescending(a => a.PostDate).ToList());
         }
 
 
@@ -88,8 +83,8 @@ namespace Dubno.Controllers
         [HttpPost]
         public async Task<IActionResult> Upload(PostViewModel newPost, IFormFile image)
         {
-            byte[] profilePic = ConvertToBytes(image);
             var post = new Post { Description = newPost.Description, Title = newPost.Title, Name = newPost.Name, Email = newPost.Email, City = newPost.City, State = newPost.State };
+            byte[] profilePic = ConvertToBytes(image);
             post.ImageName = profilePic;
             post.Approved = false;
             post.Pending = true;
@@ -118,32 +113,52 @@ namespace Dubno.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        //end handling new content
-
-
 
         public IActionResult Edit(int id)
         {
-            var thisPlace = db.Posts.FirstOrDefault(places => places.PostId == id);
-            return View(thisPlace);
+            var post = db.Posts.FirstOrDefault(posts => posts.PostId == id);
+            return View(post);
         }
 
         [HttpPost]
-        public IActionResult Edit(Post post)
+        public IActionResult Edit(Post post, IFormFile image)
         {
+            byte[] profilePic = ConvertToBytes(image);
+            post.ImageName = profilePic;
             post.PostDate = DateTime.Now;
             post.Approved = false;
             post.Pending = true;
             db.Entry(post).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("AdminView");
+            return RedirectToAction("AdminView", "Home");
         }
 
 
         [HttpPost]
-        public IActionResult ApprovePost(int id)
+        public async Task<IActionResult> ApprovePost(int id)
         {
             var thisPost = db.Posts.FirstOrDefault(i => i.PostId == id);
+
+            var emailMessage = new MimeMessage();
+
+
+            emailMessage.From.Add(new MailboxAddress("Humans of Dubno", "keelyzglenn@gmail.com"));
+            emailMessage.To.Add(new MailboxAddress(thisPost.Name, thisPost.Email));
+            emailMessage.Subject = "Post Submission";
+            emailMessage.Body = new TextPart("html")
+            {
+                Text = string.Format("Dear " + thisPost.Name + "<br/> Thank you for your contribution to Humans of Dubno. You post has been selected to display on the webpage. <br> Thank you, <br> Humans of Dubno Staff")
+            };
+
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
+                client.Authenticate("keelyzglenn@gmail.com", "monkey1963");
+                await client.SendAsync(emailMessage).ConfigureAwait(false);
+                await client.DisconnectAsync(true).ConfigureAwait(false);
+            };
+
             thisPost.Approved = true;
             thisPost.Pending = false;
             thisPost.PostDate = DateTime.Now;

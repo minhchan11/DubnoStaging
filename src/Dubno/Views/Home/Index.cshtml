@@ -6,42 +6,27 @@
 
 @model IEnumerable<Dubno.Models.Post>
 
-@*<div class="container-fluid index-feature">
-    <h1 class="title">People of Dubno</h1>
-
-    @foreach (var post in ViewData["FeaturedPosts"] as IEnumerable<Dubno.Models.Post>)
-    {
-        @if (post.Approved == true && post.Pending == false)
-        {
-            <a href="@Url.Action("Details","Home", new { id = post.PostId })">
-                <div class="col-md-4">
-                    <img src="@post.ImageName">
-
-                </div>
-            </a>
-
-        }
-    }
-
-
-</div>*@
 
 <div>
     <div class="row mission">
   
+
             <img src="~/images/text.png" class="intro"/>
        
        
         <div class="row statement">
-            <h2 class="title">Our Mission</h2>
-            <hr />
+
             <br />
             <div class="col-md-6">
-                <p>Integrity Auto Sales provides a unique car buying experience to the customers in the Willamette Valley. One that focuses on customer satisfaction first. We understand that vehicle purchasing is a necessary, but sometimes unpleasant experience. Our goal is to provide the customer with an enjoyable, honest service by satisfying individual customers practical transportation needs with a quality product.</p>
-            </div>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in purus dictum, laoreet est in, ultricies ex. Duis tempus rutrum lorem quis tincidunt. In lectus ipsum, auctor a magna sit amet, posuere vehicula sem. Suspendisse pulvinar, lorem non suscipit viverra, magna nisi tempus felis, et euismod ligula lorem quis odio. Mauris quis quam et nulla tincidunt tempor sodales sed risus. Vivamus a lobortis magna. Vestibulum aliquet arcu vel malesuada hendrerit. Sed pharetra, magna sed pretium volutpat, dolor mauris consequat dolor, sit amet luctus magna lacus at ex. Proin bibendum metus eget ipsum condimentum convallis.
+</p>            </div>
             <div class="col-md-6">
-                <p> with a 30 day limited warranty. Our company will make a profit by generating sales. It will provide job satisfaction and fair compensation to its employees, and a fair return to its owners. Hard work and performance is rewarded through bonuses and commissions. Job satisfaction is very important for employees and owners, we will create a work environment that is enjoyable and profitable for all.</p>
+                <p>Morbi vel felis id velit eleifend suscipit a nec purus. Sed sodales, ex ac finibus rhoncus, augue nunc hendrerit dolor, sed feugiat elit eros sed nulla. Integer et felis in nisl blandit cursus. Quisque pharetra, massa id posuere egestas, urna orci hendrerit lorem, in cursus leo augue ut dui. Nullam neque lacus, mattis imperdiet ullamcorper in, consequat vel purus. Fusce nec diam convallis, egestas nulla in, vehicula massa. Donec gravida porttitor erat eu vehicula. Duis vitae mollis sapien, quis sodales ipsum.
+
+</p>
             </div>
+
         </div>
     </div>
     <br />
@@ -60,23 +45,28 @@
                     <div class="story">
                         <a href="@Url.Action("Details","Home", new { id = post.PostId })">
                             <div class="image">
-                                <img src="@post.ImageName" class="img-responsive">
+                                <img src="data:image;base64,@System.Convert.ToBase64String(post.ImageName)" class="img-responsive"/>
+                           
                             </div>
 
 
                             <div class="row text">
 
                                 <p>@post.Description</p>
-                                <p class="pull-right">@post.City, @post.State</p>
 
+                                <p>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <span class="pull-left">@Html.ActionLink("Delete", "Delete", new { id = post.PostId })</span>
+
+                                }
+                                <span class="pull-right">@post.City, @post.State</span>
+
+
+                                </p>
                             </div>
                             <div class="row">
 
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    <p>@Html.ActionLink("Delete", "Delete", new { id = post.PostId })</p>
-
-                                }
                             </div>
 
                         </a>
@@ -86,5 +76,6 @@
             }
         </div>
     </div>
+
 
 </div>

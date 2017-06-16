@@ -21,22 +21,21 @@
 
                     <div id="post-@post.PostId">
                         <div class="col-md-4">
-                            <div>
-                                <div class="pi-img-wrapper">
+                            
+                                <div class="admin-view-post">
                                     <img src="data:image;base64,@System.Convert.ToBase64String(post.ImageName)" />
                                    
                                 </div>
                                 <h1> @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })</h1>
-                                <h5>@post.Name</h5>
+                                <h5>Submitted by: @post.Name</h5>
                                 <h5>@post.Description</h5>
                                 <h5>@post.City, @post.State</h5>
                                 <h5>@post.PostDate</h5>
 
-                                <p>@Html.ActionLink("Edit", "Edit", new { id = post.PostId })</p>
-                                <p>@Html.ActionLink("Permantely Delete", "Delete", new { id = post.PostId })</p>
+                                <p> <span class="space">@Html.ActionLink("Edit", "Edit", new { id = post.PostId })</span>     <span class="space"> @Html.ActionLink("Delete", "Delete", new { id = post.PostId })</span></p>
                                 <button class="post btn btn-default" value="@post.PostId">Post</button>
 
-                            </div>
+                          
                         </div>
                     </div>
 

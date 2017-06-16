@@ -4,10 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container-fluid page">
+<div class="page">
     <div class="details-page">
         <div class="row image-details">
-            <img src="@Html.DisplayFor(model => model.ImageName)" style="width:100%">
+
+    
+            <img src="data:image;base64,@System.Convert.ToBase64String(Model.ImageName)" />
+
 
         </div>
         <div class="row title">
@@ -30,18 +33,22 @@
 @if (!User.Identity.IsAuthenticated)
 {
 <h4 class="title">More Stories</h4>
-<div class="details-featured-posts row">
+<div class="details-featured-posts container">
 
 
     @foreach (var post in ViewData["FeaturedPosts"] as IEnumerable<Dubno.Models.Post>)
     {
         @if (post.Approved == true && post.Pending == false)
         {
-            <a href="@Url.Action("Details", "Home", new { id = post.PostId })">
-                <div class="alt-story">
-                    <img src="@post.ImageName">
-                </div>
-            </a>
+            <dv class="col-md-6">
+
+
+                <a href="@Url.Action("Details", "Home", new { id = post.PostId })">
+                    <div class="alt-story">
+                        <img src="data:image;base64,@System.Convert.ToBase64String(post.ImageName)" class="img-responsive" />
+                    </div>
+                </a>
+            </dv>
         }
     }
 

@@ -33,14 +33,14 @@
 @if (!User.Identity.IsAuthenticated)
 {
 <h4 class="title">More Stories</h4>
-<div class="details-featured-posts container">
+<div class=" container ">
 
 
     @foreach (var post in ViewData["FeaturedPosts"] as IEnumerable<Dubno.Models.Post>)
     {
         @if (post.Approved == true && post.Pending == false)
         {
-            <dv class="col-md-6">
+            <div class="col-md-6 details-featured-posts">
 
 
                 <a href="@Url.Action("Details", "Home", new { id = post.PostId })">
@@ -48,7 +48,7 @@
                         <img src="data:image;base64,@System.Convert.ToBase64String(post.ImageName)" class="img-responsive" />
                     </div>
                 </a>
-            </dv>
+            </div>
         }
     }
 

@@ -7,7 +7,6 @@
 @model IEnumerable<Dubno.Models.Post>
 
 
-<div>
     <div class="row mission">
   
 
@@ -30,11 +29,9 @@
         </div>
     </div>
     <br />
-</div>
-
 <div class="scroll">
-    <div class="index">
-        <div>
+   
+    
 
             @foreach (var post in Model)
             {
@@ -42,7 +39,7 @@
                 @if (post.Approved == true && post.Pending == false)
                 {
 
-                    <div class="story">
+                    <div class="story col-md-6">
                         <a href="@Url.Action("Details","Home", new { id = post.PostId })">
                             <div class="image">
                                 <img src="data:image;base64,@System.Convert.ToBase64String(post.ImageName)" class="img-responsive"/>
@@ -55,19 +52,13 @@
                                 <p>@post.Description</p>
 
                                 <p>
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    <span class="pull-left">@Html.ActionLink("Delete", "Delete", new { id = post.PostId })</span>
-
-                                }
+                       
                                 <span class="pull-right">@post.City, @post.State</span>
 
 
                                 </p>
                             </div>
-                            <div class="row">
-
-                            </div>
+                      
 
                         </a>
                     </div>
@@ -75,7 +66,4 @@
 
             }
         </div>
-    </div>
 
-
-</div>

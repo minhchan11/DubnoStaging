@@ -20,10 +20,10 @@ namespace Dubno.Models
         {
             var user = new ApplicationUser
             {
-                UserName = "Email@gmail.com",
-                NormalizedUserName = "email@gmail.com",
-                Email = "Email@gmail.com",
-                NormalizedEmail = "email@gmail.com",
+                UserName = "humansofdubno@gmail.com",
+                NormalizedUserName = "humansofdubno@gmail.com",
+                Email = "humansofdubno@gmail.com",
+                NormalizedEmail = "humansofdubno@gmail.com",
                 EmailConfirmed = true,
                 LockoutEnabled = false,
                 SecurityStamp = Guid.NewGuid().ToString()
@@ -39,7 +39,7 @@ namespace Dubno.Models
             if (!_context.Users.Any(u => u.UserName == user.UserName))
             {
                 var password = new PasswordHasher<ApplicationUser>();
-                var hashed = password.HashPassword(user, "password");
+                var hashed = password.HashPassword(user, "dubno2017");
                 user.PasswordHash = hashed;
                 var userStore = new UserStore<ApplicationUser>(_context);
                 await userStore.CreateAsync(user);
@@ -48,5 +48,6 @@ namespace Dubno.Models
 
             await _context.SaveChangesAsync();
         }
+
     }
 }

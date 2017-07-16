@@ -25,6 +25,7 @@
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.AspNetCore.DataProtection.Abstractions\1.1.1\lib\netstandard1.3\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.AspNetCore.Diagnostics\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Diagnostics.dll
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.AspNetCore.Diagnostics.Abstractions\1.1.1\lib\netstandard1.0\Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+--reference:C:\Users\glenj392\.nuget\packages\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.AspNetCore.Hosting\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Hosting.dll
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.AspNetCore.Hosting.Abstractions\1.1.1\lib\netstandard1.3\Microsoft.AspNetCore.Hosting.Abstractions.dll
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions\1.1.1\lib\netstandard1.3\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
@@ -101,6 +102,7 @@
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.Extensions.WebEncoders\1.1.1\lib\netstandard1.0\Microsoft.Extensions.WebEncoders.dll
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.Net.Http.Headers\1.1.1\lib\netstandard1.1\Microsoft.Net.Http.Headers.dll
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.VisualBasic\10.0.1\ref\netstandard1.1\Microsoft.VisualBasic.dll
+--reference:C:\Users\glenj392\.nuget\packages\Microsoft.VisualStudio.Web.BrowserLink.Loader\14.0.0\lib\netstandard1.5\Microsoft.VisualStudio.Web.BrowserLink.Loader.dll
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.Win32.Primitives\4.3.0\ref\netstandard1.3\Microsoft.Win32.Primitives.dll
 --reference:C:\Users\glenj392\.nuget\packages\Microsoft.Win32.Registry\4.3.0\ref\netstandard1.3\Microsoft.Win32.Registry.dll
 --reference:C:\Users\glenj392\.nuget\packages\MimeKit\1.6.0\lib\netstandard1.3\MimeKit.dll
@@ -232,6 +234,5 @@ C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Models\Post.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Models\SampleData.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Models\Subscriber.cs
-C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\ViewModels\EmailViewModel.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\ViewModels\LoginViewModel.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\ViewModels\PostViewModel.cs

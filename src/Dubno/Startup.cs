@@ -60,6 +60,10 @@ namespace Dubno
             //tells app to use our wwwroot folder for css/js/images
             app.UseStaticFiles();
 
+            app.UseDeveloperExceptionPage();
+            app.UseDatabaseErrorPage();
+            app.UseBrowserLink();
+
             loggerFactory.AddConsole();
             if (env.IsDevelopment())
             {

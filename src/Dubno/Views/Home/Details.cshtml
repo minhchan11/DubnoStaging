@@ -21,12 +21,14 @@
                 <br />
                 <p>User Email: @Html.DisplayFor(model => model.Email)</p>
                 <br />
+                <p> <span class="space">@Html.ActionLink("Edit", "Edit", new { id = Model.PostId })</span>     <span class="space"> @Html.ActionLink("Delete", "Delete", new { id = Model.PostId })</span></p>
+<br />
                 <p>Admin Comments:</p>
                 <p>@Html.DisplayFor(model => model.AdminComment)</p>
             }
         </div>
-
-    </div>
+        <div class="row"></div>
+      </div>
 </div>
 
 

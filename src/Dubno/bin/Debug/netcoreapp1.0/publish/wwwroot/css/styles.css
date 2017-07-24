@@ -1,0 +1,272 @@
+﻿@media screen and (min-width:300px) {
+
+   
+
+    html,
+    body {
+        overflow-x: hidden;
+     font-family: 'Roboto Slab', serif;
+        -webkit-font-smoothing: antialiased;
+        padding-top: 30px;
+    }
+    
+
+    .footer {
+        padding: 1px;
+        padding-top: 10px;
+        background-color: black;
+        color: white;
+        text-align: center;    
+       
+    }
+
+ 
+
+     /*Navbar*/
+
+    .nav-logo img{
+      width: 300px;
+      left: -15px;
+    }
+    .navbar {
+        background-color: white;
+        font-family: 'Roboto Slab', serif;
+
+    }
+
+    .navbar .logout {
+        margin-top: 30px !important;
+    }
+    .fixed-me {
+        transition: all 1s;
+    }
+
+    .fixed-me {
+        background-color: #fff !important;
+        padding: 5px !important;
+        margin-bottom: 5px;
+        position: fixed;
+        top: 0;
+        z-index: 888;
+        width: 100%;
+        box-shadow: 0 0 5px rgba(0,0,0,.8);
+    }
+
+    .navbar-me {
+        transition: all 1s;
+    }
+
+    .navbar-me {
+        padding: 10px 0px;
+        background-color: white;
+        top: 0px;
+        border: 0px;
+        border-radius: 0px;
+        color: black;
+    }
+
+    .navbar a {
+        color: black;
+        font-size: 18px;
+    }
+    .navbar-brand{
+        font-size: 22px;
+    }
+
+    .logout{
+        margin-top: 10px;
+    }
+
+    .main-body{
+        min-height: 600px;
+    }
+
+ 
+   
+
+
+    /*index page*/
+
+    .title {
+        text-align: center;
+        margin: 40px;
+    }
+
+    .mission {
+        background-color: black;
+        color: white;
+        text-align: justify;
+        padding-top: 90px;
+       
+        padding: 80px;
+         
+        margin-top: -30px;
+        margin-bottom: 100px;
+     
+    }
+
+ 
+
+     .intro{
+       margin-left: 190px;
+       margin-top: -50px;
+       padding-top: 40px;
+     }
+
+  
+
+    .scroll{
+       text-align: center;
+       background-color: white;
+      
+    }
+
+
+    .story a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .story {
+          background-color:white;
+          padding: 10px;
+    }
+
+       .story img{
+          padding: 10px;
+    }
+
+      
+    .text{
+        text-align: justify;
+        padding:  4rem;
+        font-size: 16px;
+    }
+
+
+
+    /*details page*/
+
+    .details-page {
+        text-align: center;
+        margin-top: 30px;
+       
+    }
+
+    .image-details img {
+        max-height: 600px;
+        max-width: 600px;
+    }
+
+    .page{
+         background-color: #f4f4f4;
+         padding-top: 40px;
+    }
+
+ 
+
+    .details-featured-posts {
+     display: inline-block;
+     text-align:center;
+    
+     width: 40em;
+    }
+
+      
+    .details-featured-posts img {
+       width: 40em;
+       max-height: 30em;
+
+        padding: 20px;
+      
+    }
+
+  
+
+    /*suggest page*/
+
+    #disclaimer{
+        color: #9b9b9b;
+    }
+
+
+    /*about*/
+
+    .about{
+        text-align: justify;
+        padding: 100px;
+        margin-top: -60px;
+        padding-bottom: 100px;
+    }
+    .grid-divider {
+        position: relative;
+        padding: 0;
+    }
+    .grid-divider>[class*='col-'] {
+        position: static;
+    }
+    .grid-divider>[class*='col-']:nth-child(n+2):before {
+        content: "";
+        border-left: 1px solid #DDD;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+    .col-padding {
+        padding: 0 15px;
+    }
+
+
+    .icons {
+        height: 100px;
+    }
+
+    .three-view{
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+    .newsletter{
+        padding-top: 30px;
+    }
+
+
+
+
+
+
+    /*admin login page*/
+
+    .admin-login{
+        text-align: center;
+        margin-top: 50px;
+
+    }
+    
+
+    /*admin dashboard*/
+    .admin-view{
+        margin-top: 30px;
+        text-align: justify;
+    }
+
+    .admin-view-post img{
+        max-width: 25em;
+    }
+
+    .space {
+        margin: 10px;
+    }
+
+
+
+    /*edit*/
+
+    .edit-post{
+        margin-top: 100px;
+    }
+
+    .edit-post img {
+        text-align: center;
+    }
+}

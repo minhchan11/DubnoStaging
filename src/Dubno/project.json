@@ -1,7 +1,10 @@
 {
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+    "copyToOutput": {
+      "include": [ "appsettings.json" ]
+    }
   },
   "dependencies": {
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
@@ -39,9 +42,13 @@
       ]
     }
   },
+
   "publishOptions": {
     "include": [
       "wwwroot",
+      "Views",
+      "Areas/**/Views",
+      "appsettings.json",
       "web.config"
     ]
   },

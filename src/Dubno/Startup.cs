@@ -9,17 +9,24 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Dubno.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using ReflectionIT.Mvc.Paging;
+using System;
+using System.IO;
+
 
 namespace Dubno
 {
     public class Startup
     {
         public IConfigurationRoot Configuration { get; set; }
-        public Startup(IHostingEnvironment env)
+
+        public Startup(IHostingEnvironment environment)
         {
+
+   
+
             var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json");
+                .SetBasePath(environment.ContentRootPath)
+                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             Configuration = builder.Build();
         }
 

@@ -19,16 +19,20 @@ namespace Dubno
     {
         public IConfigurationRoot Configuration { get; set; }
 
-        public Startup(IHostingEnvironment environment)
-        {
+     public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
-   
+  
+    builder.AddEnvironmentVariables();
+    Configuration = builder.Build();
 
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(environment.ContentRootPath)
-                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            Configuration = builder.Build();
-        }
+    Console.WriteLine("Root Path: " + env.ContentRootPath);
+    Console.WriteLine("Connection String: " + Configuration.GetConnectionString("DefaultConnection"));
+}
 
         public void ConfigureServices(IServiceCollection services)
         {

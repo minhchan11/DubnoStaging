@@ -222,15 +222,12 @@
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Program.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Startup.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Controllers\AccountController.cs
-C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Controllers\EmailController.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Controllers\HomeController.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Migrations\20170616190448_initial.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Migrations\20170616190448_initial.Designer.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Migrations\DubnoDbContextModelSnapshot.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Models\ApplicationUser.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Models\DubnoDbContext.cs
-C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Models\MessageServices.cs
-C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Models\PaginatedList.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Models\Post.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Models\SampleData.cs
 C:\Users\glenj392\Documents\Visual Studio 2015\Projects\HumansOfDubno\src\Dubno\Models\Subscriber.cs

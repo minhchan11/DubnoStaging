@@ -87,6 +87,10 @@
 
     /*index page*/
 
+    .home-page{
+        margin-top: -100px;
+    }
+
     .title {
         text-align: center;
         margin: 40px;
@@ -154,8 +158,8 @@
     }
 
     .image-details img {
-        max-height: 600px;
-        max-width: 600px;
+        max-height: 700px;
+        max-width: 800px;
     }
 
     .page{
@@ -166,18 +170,13 @@
  
 
     .details-featured-posts {
-     display: inline-block;
-     text-align:center;
-    
-     width: 40em;
+    height: 450px;
     }
 
       
     .details-featured-posts img {
-       width: 40em;
-       max-height: 30em;
-
-        padding: 20px;
+    height: 350px;
+    width: 500px;
       
     }
 
@@ -270,3 +269,4 @@
         text-align: center;
     }
 }
+

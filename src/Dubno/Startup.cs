@@ -15,23 +15,21 @@ using System.IO;
 
 namespace Dubno
 {
+
     public class Startup
     {
         public IConfigurationRoot Configuration { get; set; }
 
      public Startup(IHostingEnvironment env)
 {
-    var builder = new ConfigurationBuilder()
-        .SetBasePath(env.ContentRootPath)
-        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
         .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
   
     builder.AddEnvironmentVariables();
     Configuration = builder.Build();
 
-    Console.WriteLine("Root Path: " + env.ContentRootPath);
-    Console.WriteLine("Connection String: " + Configuration.GetConnectionString("DefaultConnection"));
 }
 
         public void ConfigureServices(IServiceCollection services)

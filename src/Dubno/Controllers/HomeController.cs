@@ -190,7 +190,7 @@ namespace Dubno.Controllers
             var emailMessage = new MimeMessage();
 
 
-            emailMessage.From.Add(new MailboxAddress("Humans of Dubno", "keelyzglenn@gmail.com"));
+            emailMessage.From.Add(new MailboxAddress("Humans of Dubno", "humansofdubno@gmail.com"));
             emailMessage.To.Add(new MailboxAddress(thisPost.Name, thisPost.Email));
             emailMessage.Subject = "Post Submission";
             emailMessage.Body = new TextPart("html")
@@ -202,7 +202,7 @@ namespace Dubno.Controllers
             using (var client = new SmtpClient())
             {
                 client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
-                client.Authenticate("keelyzglenn@gmail.com", "monkey1963");
+                client.Authenticate("humansofdubno@gmail.com", "dubno2017");
                 await client.SendAsync(emailMessage).ConfigureAwait(false);
                 await client.DisconnectAsync(true).ConfigureAwait(false);
             };

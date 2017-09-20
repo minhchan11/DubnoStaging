@@ -87,9 +87,7 @@
 
     /*index page*/
 
-    .home-page{
-        margin-top: -100px;
-    }
+
 
     .title {
         text-align: center;
@@ -260,6 +258,12 @@
 
 
     /*edit*/
+
+    .edit-photo img{
+        text-align:center
+        max-width: 600px;
+        max-height: 400px;
+    }
 
     .edit-post{
         margin-top: 100px;

@@ -14,27 +14,40 @@ $(document).ready(function () {
     });
 });
 
-
 //navbar fixed position, changes the class in order to get the scroll affect
 
 $(document).ready(function () {
-    $(".navbar").hide();
-
-    if (window.location.pathname == '/Home/Index') {
-
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 600) {
-                $('.navbar').fadeIn();
-                $(".navbar-me").addClass("fixed-me");
-            }
-            else {
-                $('.navbar').fadeOut();
-            }
-        });
-    }
-    else {
-        $('.navbar').fadeIn();
-        $(".navbar-me").addClass("fixed-me");
-    }
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 5) {
+            $(".navbar-me").addClass("fixed-me");
+        } else {
+            $(".navbar-me").removeClass("fixed-me");
+        }
+    });
 });
+
+
+
+//navbar fixed position, changes the class in order to get the scroll affect
+
+//$(document).ready(function () {
+//    $(".navbar").hide();
+
+//    if (window.location.pathname == '/Home/Index') {
+
+//        $(window).scroll(function () {
+//            if ($(this).scrollTop() > 600) {
+//                $('.navbar').fadeIn();
+//                $(".navbar-me").addClass("fixed-me");
+//            }
+//            else {
+//                $('.navbar').fadeOut();
+//            }
+//        });
+//    }
+//    else {
+//        $('.navbar').fadeIn();
+//        $(".navbar-me").addClass("fixed-me");
+//    }
+//});
 

@@ -33,7 +33,7 @@ namespace Dubno.Controllers
 
         public IActionResult Index()
         {
-            ViewData["FeaturedPosts"] = db.Posts.OrderByDescending(a => a.PostDate).ToList().Take(3);
+            ViewData["FeaturedPosts"] = db.Posts.OrderByDescending(a => a.PostDate).ToList().Take(4);
 
 
             //returns the view with a list of all the approved posts descending by post date which updates automatically at different times (initial, edits, and post)
@@ -103,12 +103,12 @@ namespace Dubno.Controllers
             var emailMessage = new MimeMessage();
 
 
-            emailMessage.From.Add(new MailboxAddress("The Peace Corps", "humansofdubno@gmail.com"));
+            emailMessage.From.Add(new MailboxAddress("People of Ukraine", "humansofdubno@gmail.com"));
             emailMessage.To.Add(new MailboxAddress(newPost.Name, newPost.Email));
             emailMessage.Subject = "Post Submission";
             emailMessage.Body = new TextPart("html")
             {
-                Text = string.Format("Dear " + newPost.Name + "<br/> Thank you for your contribution to Humans of Dubno. We hace received you submission and it is under review. You will recieve another email if any edits are made or if your post has been selected to display. <br> Thank you, <br> Humans of Dubno Staff")
+                Text = string.Format("Dear " + newPost.Name + "<br/> Thank you for your contribution to People of Ukraine. We hace received you submission and it is under review. You will recieve another email if any edits are made or if your post has been selected to display. <br> Thank you, <br> People of Ukraine Staff")
             };
 
             using (var client = new SmtpClient())
@@ -160,18 +160,18 @@ namespace Dubno.Controllers
             var emailMessage = new MimeMessage();
 
 
-            emailMessage.From.Add(new MailboxAddress("Keely", "keelyzglenn@gmail.com"));
+            emailMessage.From.Add(new MailboxAddress("People of Ukraine", "humansofdubno@gmail.com"));
             emailMessage.To.Add(new MailboxAddress(post.Name, post.Email));
             emailMessage.Subject = "Post Edit";
             emailMessage.Body = new TextPart("html")
             {
-                Text = string.Format("Dear " + post.Name + "<br/> Some edits have been made to your submitted post. Please review the admin comments below for further information.<br>" + post.AdminComment + "<br> Thank you, <br> Humans of Dubno Staff")
+                Text = string.Format("Dear " + post.Name + "<br/> Some edits have been made to your submitted post. Please review the admin comments below for further information.<br>" + post.AdminComment + "<br> Thank you, <br> People of Ukraine Staff")
             };
 
             using (var client = new SmtpClient())
             {
                 client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
-                client.Authenticate("keelyzglenn@gmail.com", "monkey1963");
+                client.Authenticate("humansofdubno@gmail.com", "dubno2017");
                 await client.SendAsync(emailMessage).ConfigureAwait(false);
                 await client.DisconnectAsync(true).ConfigureAwait(false);
             };
@@ -190,12 +190,12 @@ namespace Dubno.Controllers
             var emailMessage = new MimeMessage();
 
 
-            emailMessage.From.Add(new MailboxAddress("Humans of Dubno", "humansofdubno@gmail.com"));
+            emailMessage.From.Add(new MailboxAddress("People of Ukraine", "humansofdubno@gmail.com"));
             emailMessage.To.Add(new MailboxAddress(thisPost.Name, thisPost.Email));
             emailMessage.Subject = "Post Submission";
             emailMessage.Body = new TextPart("html")
             {
-                Text = string.Format("Dear " + thisPost.Name + "<br/> Thank you for your contribution to Humans of Dubno. You post has been selected to display on the webpage. <br> Thank you, <br> Humans of Dubno Staff")
+                Text = string.Format("Dear " + thisPost.Name + "<br/> Thank you for your contribution to People of Ukraine. You post has been selected to display on the webpage. <br> Thank you, <br> People of Ukraine Staff")
             };
 
 

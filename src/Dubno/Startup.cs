@@ -24,10 +24,10 @@ namespace Dubno
     {
                 var builder = new ConfigurationBuilder()
                     .SetBasePath(env.ContentRootPath)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+                .AddJsonFile("appsettings.json", optional: true);
 
   
-        builder.AddEnvironmentVariables();
+        //builder.AddEnvironmentVariables();
         Configuration = builder.Build();
 
     }

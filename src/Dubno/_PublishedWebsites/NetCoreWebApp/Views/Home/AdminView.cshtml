@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Admin Portal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Dubno.Models.Post>
+
+@using System.Security.Claims
+
+@if (User.Identity.IsAuthenticated)
+{
+
+    <div class="container admin-view">
+        <h3 class="title">Submitted Posts</h3>
+        <div class="row">
+
+    @foreach (var post in Model)
+    {
+        @if (post.Approved == false && post.Pending == true)
+          {
+
+                    <div id="post-@post.PostId">
+                        <div class="col-md-4">
+                            
+                                <div class="admin-view-post">
+                                    <img src="data:image;base64,@System.Convert.ToBase64String(post.ImageName)" />
+                                   
+                                </div>
+                                <h2> @Html.ActionLink((string)post.Title, "Details", new { id = post.PostId })</h2>
+                                <h3>Submitted by: @post.Name</h3>
+                                <h5>@post.Description</h5>
+                                <h5 class="grey">@post.City, @post.State</h5>
+                                <h5 class="grey">@post.PostDate</h5>
+
+                                <p> <span class="space">@Html.ActionLink("Edit", "Edit", new { id = post.PostId })</span>     <span class="space"> @Html.ActionLink("Delete", "Delete", new { id = post.PostId })</span></p>
+                                <button class="post btn btn-default" value="@post.PostId">Post</button>
+
+                          
+                        </div>
+                    </div>
+
+                }
+
+          
+          
+
+            }
+
+        </div>
+    </div>
+  }

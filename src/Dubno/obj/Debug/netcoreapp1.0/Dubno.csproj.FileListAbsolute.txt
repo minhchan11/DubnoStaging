@@ -1,0 +1,9 @@
+C:\Users\Minh\Desktop\Deployed\HumansOfDubno\src\Dubno\bin\Debug\netcoreapp1.0\Dubno.deps.json
+C:\Users\Minh\Desktop\Deployed\HumansOfDubno\src\Dubno\bin\Debug\netcoreapp1.0\Dubno.runtimeconfig.json
+C:\Users\Minh\Desktop\Deployed\HumansOfDubno\src\Dubno\bin\Debug\netcoreapp1.0\Dubno.runtimeconfig.dev.json
+C:\Users\Minh\Desktop\Deployed\HumansOfDubno\src\Dubno\bin\Debug\netcoreapp1.0\Dubno.dll
+C:\Users\Minh\Desktop\Deployed\HumansOfDubno\src\Dubno\bin\Debug\netcoreapp1.0\Dubno.pdb
+C:\Users\Minh\Desktop\Deployed\HumansOfDubno\src\Dubno\obj\Debug\netcoreapp1.0\Dubno.csproj.CoreCompileInputs.cache
+C:\Users\Minh\Desktop\Deployed\HumansOfDubno\src\Dubno\obj\Debug\netcoreapp1.0\Dubno.AssemblyInfo.cs
+C:\Users\Minh\Desktop\Deployed\HumansOfDubno\src\Dubno\obj\Debug\netcoreapp1.0\Dubno.dll
+C:\Users\Minh\Desktop\Deployed\HumansOfDubno\src\Dubno\obj\Debug\netcoreapp1.0\Dubno.pdb

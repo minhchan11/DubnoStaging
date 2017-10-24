@@ -1,0 +1,151 @@
+﻿@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <div class="row about">
+
+        <h2 class="title">Our Story</h2>
+
+        <br />
+        <div class="col-md-6">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in purus dictum, laoreet est in, ultricies ex. Duis tempus rutrum lorem quis tincidunt. In lectus ipsum, auctor a magna sit amet, posuere vehicula sem. Suspendisse pulvinar, lorem non suscipit viverra, magna nisi tempus felis, et euismod ligula lorem quis odio. Mauris quis quam et nulla tincidunt tempor sodales sed risus. Vivamus a lobortis magna. Vestibulum aliquet arcu vel malesuada hendrerit. Sed pharetra, magna sed pretium volutpat, dolor mauris consequat dolor, sit amet luctus magna lacus at ex. Proin bibendum metus eget ipsum condimentum convallis.<</p>
+            <p>Morbi vel felis id velit eleifend suscipit a nec purus. Sed sodales, ex ac finibus rhoncus, augue nunc hendrerit dolor, sed feugiat elit eros sed nulla. Integer et felis in nisl blandit cursus. Quisque pharetra, massa id posuere egestas, urna orci hendrerit lorem, in cursus leo augue ut dui. Nullam neque lacus, mattis imperdiet ullamcorper in, consequat vel purus. Fusce nec diam convallis, egestas nulla in, vehicula massa. Donec gravida porttitor erat eu vehicula. Duis vitae mollis sapien, quis sodales ipsum.
+            </p>        </div>
+        <div class="col-md-6">
+            <p>Morbi vel felis id velit eleifend suscipit a nec purus. Sed sodales, ex ac finibus rhoncus, augue nunc hendrerit dolor, sed feugiat elit eros sed nulla. Integer et felis in nisl blandit cursus. Quisque pharetra, massa id posuere egestas, urna orci hendrerit lorem, in cursus leo augue ut dui. Nullam neque lacus, mattis imperdiet ullamcorper in, consequat vel purus. Fusce nec diam convallis, egestas nulla in, vehicula massa. Donec gravida porttitor erat eu vehicula. Duis vitae mollis sapien, quis sodales ipsum.
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in purus dictum, laoreet est in, ultricies ex. Duis tempus rutrum lorem quis tincidunt. In lectus ipsum, auctor a magna sit amet, posuere vehicula sem. Suspendisse pulvinar, lorem non suscipit viverra, magna nisi tempus felis, et euismod ligula lorem quis odio. Mauris quis quam et nulla tincidunt tempor sodales sed risus. Vivamus a lobortis magna. Vestibulum aliquet arcu vel malesuada hendrerit. Sed pharetra, magna sed pretium volutpat, dolor mauris consequat dolor, sit amet luctus magna lacus at ex. Proin bibendum metus eget ipsum condimentum convallis.<</p>
+        </div>
+    </div>
+
+    <div class="three-view container">
+        <div class="row">
+            <h3>How It Works</h3>
+            <br />
+            <div class="col-sm-4">
+                <div class="col-padding">
+                    <img src="~/images/cameraicon.png" class="icons" />
+                    <br />
+                    <br />
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-padding">
+                    <img src="~/images/flagicon.png" class="icons" />
+                    <br />
+                    <br />
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-padding">
+                    <img src="~/images/phoneicon.png" class="icons" />
+                    <br />
+                    <br />
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <br />
+
+        <div class="newsletter">
+
+            <h4 class="title">Contact Us</h4>
+            @model Dubno.Models.Subscriber
+            <div class="col-md-9 col-md-offset-1">
+                @using (Html.BeginForm(new { @class = "form-horizontal" }))
+                {
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Email</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Email, new { data_bind = "value: youremail@gmail.com", @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Name</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.FirstName, new { data_bind = "value: First Name", @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Message</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.LastName, new { data_bind = "value: Message", @class = "form-control", @style = "height:300px;" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                    </div>
+                    <div class="form-group newsletter">
+                      
+                        <div class="col-md-10 col-md-offset-2">
+                            <input type="submit" value="Send Message" class="btn btn-default" />
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+            @*<h4 class="title">Subscribe to People of Dubno for email updates about new posts and access to our Newsletter</h4>
+
+            @model Dubno.Models.Subscriber
+
+            <div class="col-md-6 col-md-offset-3">
+                @using (Html.BeginForm(new { @class = "form-horizontal" }))
+                {
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Email</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.Email, new { data_bind = "value: youremail@gmail.com", @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">First Name</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.FirstName, new { data_bind = "value: First Name", @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Last Name</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.LastName, new { data_bind = "value: Last Name", @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label class="col-md-1 control-label"></label>
+                        <div class="col-md-6">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+
+                }
+            </div>*@
+        </div>
+    </div>
+
+</div>

@@ -1,16 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7197DEC9-87B7-4446-8B3E-088D3247113A}"
-	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7ECE84F8-D353-4AD3-BCB0-9B42A84BA082}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dubno", "src\Dubno\Dubno.csproj", "{1CC2F93C-EC3E-4A3B-A515-225E39863AF0}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Dubno", "src\Dubno\Dubno.xproj", "{1CC2F93C-EC3E-4A3B-A515-225E39863AF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,8 +28,5 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1CC2F93C-EC3E-4A3B-A515-225E39863AF0} = {7197DEC9-87B7-4446-8B3E-088D3247113A}
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0998A96C-AFA5-4B12-9CC3-F6C05D62F2B6}
 	EndGlobalSection
 EndGlobal

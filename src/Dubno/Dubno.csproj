@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
-    <PublishDir>$(OutDir)_PublishedWebsites\NetCoreWebApp\</PublishDir>
+    <PublishDir>$(OutDir)</PublishDir>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>Dubno</AssemblyName>
     <OutputType>Exe</OutputType>

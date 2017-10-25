@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model Dubno.Models.Post
+
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    <div class="edit-post">
+
+        <fieldset>
+
+ 
+
+            @Html.HiddenFor(model => model.PostId)
+
+            <div class="form-group edit-photo">
+                <div class="col-md-offset-3">
+                    <img src="data:image;base64,@System.Convert.ToBase64String(Model.ImageName)" />
+
+                </div>
+            </div>
+
+           
+
+           <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-6">
+                    <input type="file" id="avatar" name="avatar" />                
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">City</label>
+                <div class="col-md-6">
+                    <select name="City" id="City" class="form-control">
+                        <option value="Dubno">Dubno</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">State</label>
+                <div class="col-md-6">
+                    <select name="State" id="State" class="form-control">
+                        <option value="Ukraine">Ukraine</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Title</label>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(model => model.Title, new { data_bind = "value: Title", @class = "form-control input-md" })
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Story</label>
+                <div class="col-md-6">
+                    @Html.TextAreaFor(model => model.Description, new { data_bind = "value: Story", @class = "form-control input-md", @style = "height:300px;" })
+                </div>
+            </div>
+
+
+            @Html.HiddenFor(model => model.Email)
+
+            @Html.HiddenFor(model => model.Name)
+
+
+         
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Admin Comments</label>
+                <div class="col-md-6">
+                    @Html.TextAreaFor(model => model.AdminComment, new { data_bind = "value: Story", @class = "form-control input-md" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-6">
+                    <input type="submit" class="btn btn-default" value="Save">
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
+
+}
+
+

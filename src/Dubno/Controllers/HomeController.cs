@@ -115,7 +115,8 @@ namespace Dubno.Controllers
             {
                 client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
-                client.Authenticate("humansofdubno@gmail.com", "dubno2017");
+                await client.AuthenticateAsync("humansofdubno@gmail.com", "dubno2017");
+                //client.Authenticate("humansofdubno@gmail.com", "dubno2017");
                 await client.SendAsync(emailMessage).ConfigureAwait(false);
                 await client.DisconnectAsync(true).ConfigureAwait(false);
             };

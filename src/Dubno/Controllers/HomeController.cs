@@ -114,6 +114,7 @@ namespace Dubno.Controllers
             using (var client = new SmtpClient())
             {
                 client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
+                client.AuthenticationMechanisms.Remove("XOAUTH2")
                 client.Authenticate("humansofdubno@gmail.com", "dubno2017");
                 await client.SendAsync(emailMessage).ConfigureAwait(false);
                 await client.DisconnectAsync(true).ConfigureAwait(false);
@@ -171,6 +172,7 @@ namespace Dubno.Controllers
             using (var client = new SmtpClient())
             {
                 client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
+                client.AuthenticationMechanisms.Remove("XOAUTH2")
                 client.Authenticate("humansofdubno@gmail.com", "dubno2017");
                 await client.SendAsync(emailMessage).ConfigureAwait(false);
                 await client.DisconnectAsync(true).ConfigureAwait(false);
@@ -202,6 +204,7 @@ namespace Dubno.Controllers
             using (var client = new SmtpClient())
             {
                 client.Connect("smtp.gmail.com", 465, SecureSocketOptions.SslOnConnect);
+                client.AuthenticationMechanisms.Remove("XOAUTH2")
                 client.Authenticate("humansofdubno@gmail.com", "dubno2017");
                 await client.SendAsync(emailMessage).ConfigureAwait(false);
                 await client.DisconnectAsync(true).ConfigureAwait(false);
